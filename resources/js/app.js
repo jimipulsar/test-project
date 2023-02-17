@@ -6,6 +6,12 @@
 
 require('./bootstrap');
 import Alpine from 'alpinejs';
+import $ from 'jquery';
+import 'animate';
+window.animate = require('animate');
+window.$ = window.jQuery = $;
+global.$ = global.jQuery = require('jquery');
+import 'jquery-ui/ui/widgets/datepicker.js';
 window.Alpine = Alpine;
 
 Alpine.start();
