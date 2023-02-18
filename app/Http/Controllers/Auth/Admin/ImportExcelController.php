@@ -22,7 +22,7 @@ class ImportExcelController extends Controller
             return view('auth.admin.excelData');
 
         } else {
-            return redirect()->route('index', app()->getLocale());
+            return redirect()->route('index');
         }
     }
 
@@ -38,10 +38,10 @@ class ImportExcelController extends Controller
             $destinationPath = public_path('storage/temp/');
             $movePath = $excelFile->move($destinationPath, $name);
             Excel::import(new ProductsImport(), $movePath);
-            return redirect()->route('dashboard', app()->getLocale())->with('success', 'Prodotti importati con successo');
+            return redirect()->route('dashboard')->with('success', 'Prodotti importati con successo');
 
         } else {
-            return redirect()->route('index', app()->getLocale());
+            return redirect()->route('index');
         }
     }
 
@@ -49,10 +49,10 @@ class ImportExcelController extends Controller
     {
         if (auth()->guard('admin')->check()) {
             Excel::download(new SubscribersExport, 'subscribers.xlsx');
-            return redirect()->route('importData', app()->getLocale())->with('success', 'Lista esportata con successo');
+            return redirect()->route('importData')->with('success', 'Lista esportata con successo');
 
         } else {
-            return redirect()->route('index', app()->getLocale());
+            return redirect()->route('index');
         }
     }
 }

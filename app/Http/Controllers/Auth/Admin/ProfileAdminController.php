@@ -56,7 +56,7 @@ class ProfileAdminController extends Controller
 
         if (empty($dataProfile['email'])) {
 
-            return redirect()->route('profile', app()->getLocale())->with('errors', ' Email mancante');
+            return redirect()->route('profile')->with('errors', ' Email mancante');
 
         }
 
@@ -67,7 +67,7 @@ class ProfileAdminController extends Controller
         /**
          * after everything is done return them pack to /profile/ uri
          **/
-        return redirect()->route('profileAdmin', app()->getLocale())->with('success', ' Profilo modificato con successo!');
+        return redirect()->route('profileAdmin')->with('success', ' Profilo modificato con successo!');
     }
 
 }

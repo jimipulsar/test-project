@@ -14,7 +14,7 @@
                     <time datetime="2021-03-22"
                           class="font-medium text-gray-600"> {{ Carbon\Carbon::parse($order->created_at)->format('d/m/Y') }}</time>
                 </p>
-                <form action="{{ route('adminOrders.update', ['lang' => app()->getLocale(), $orderInfo->id]) }}"
+                <form action="{{ route('adminOrders.update', [ $orderInfo->id]) }}"
                       method="POST" enctype="multipart/form-data">
                     @csrf
                     @if($orderInfo->status == 'pending' || $orderInfo->status == 'processing' || $orderInfo->status == 'completed')
@@ -378,7 +378,7 @@
                                         </div>
                                         <div class="bg-gray-50 px-4 py-5 sm:px-6 sm:flex sm:flex-row-reverse">
                                             <form
-                                                    action="{{route('cancelOrder', ['lang' => app()->getLocale(), $order->id])}}"
+                                                    action="{{route('cancelOrder', [ $order->id])}}"
                                                     method="POST" enctype="multipart/form-data">
                                                 @csrf
                                                 <button type="submit" data-toggle="modal" data-target="#my-modal"

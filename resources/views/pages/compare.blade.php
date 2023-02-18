@@ -41,7 +41,7 @@
 
                                     <td class="product_name">
                                         <h6>
-                                            <a href="{{ route('shop.show',['lang'=>app()->getLocale(),$id,$details['slug']]) }}"
+                                            <a href="{{ route('shop.show',[$id,$details['slug']]) }}"
                                                class="text-heading">{{$details['name']}}</a></h6>
                                     </td>
                                 @endforeach
@@ -59,7 +59,7 @@
                                 @foreach(session('compare') as $id => $details)
                                     @if($details['stock_qty'] >= 1 && $details['published'] == 0)
                                         <td class="row_btn">
-                                            <a href="{{ route('shop.show',[ 'lang'=>app()->getLocale(), $id,$details['slug']]) }}"
+                                            <a href="{{ route('shop.show',[  $id,$details['slug']]) }}"
                                                class="btn btn-sm"
                                                title="Richiedi info"><i
                                                     class="fi-rs-envelope mr-5"></i>Richiedi info</a>
@@ -116,7 +116,7 @@
                                     @foreach(session('compare') as $id => $details)
                                         @if($details['stock_qty'] >= 1 )
                                             <td class="row_btn">
-                                                <a href="{{route('addcart',['lang'=>app()->getLocale(),$id,$details['slug']])}}"
+                                                <a href="{{route('addcart',[$id,$details['slug']])}}"
                                                    class="btn btn-sm"> <i class="fi-rs-shopping-bag mr-5"></i>Acquista
                                                     ora</a>
                                             </td>
@@ -131,7 +131,7 @@
                                 <td class=" font-md fw-600"></td>
                                 @foreach(session('compare') as $id => $details)
                                     <td class="row_remove">
-                                        <a href="{{route('removeCompare', ['lang'=>app()->getLocale(),$details['id']])}}"
+                                        <a href="{{route('removeCompare', [$details['id']])}}"
                                            class=""><i class="fi-rs-trash mr-5"></i><span>Rimuovi</span>
                                         </a>
                                     </td>

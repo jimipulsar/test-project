@@ -7,7 +7,7 @@
         <div class="container">
             <div class="breadcrumb">
                 <a href="index.html" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                <span></span> <a href="{{route('news', app()->getLocale())}}">News</a>
+                <span></span> <a href="{{route('news')}}">News</a>
                 <span></span> {{$fileLang->title}}
             </div>
         </div>
@@ -72,7 +72,7 @@
                                     <ul>
                                         @foreach (getCategories() as $cat)
                                             <li>
-                                                <a href="{{ route('categoryPage',['lang'=>app()->getLocale(),$cat->id,  $cat->category_slug]) }}"><img
+                                                <a href="{{ route('categoryPage',[$cat->id,  $cat->category_slug]) }}"><img
                                                             src="/assets/imgs/theme/icons/category-6.svg"
                                                             alt=""/>{{ucFirst($cat->name)}}</a>
                                             </li>
@@ -93,7 +93,7 @@
                                             </div>
                                             <div class="content pt-10">
                                                 <h5>
-                                                    <a href="{{route('single',['lang' => app()->getLocale(), 'single' => Str::slug($l->link)])}}">{{ucwords($l->path->title)}}</a>
+                                                    <a href="{{route('single',[ 'single' => Str::slug($l->link)])}}">{{ucwords($l->path->title)}}</a>
                                                 </h5>
 
                                             </div>

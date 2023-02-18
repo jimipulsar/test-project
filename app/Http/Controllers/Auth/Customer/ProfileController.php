@@ -53,12 +53,12 @@ class ProfileController extends Controller
 
         if (empty($data['email'])) {
 
-            return redirect()->route('profile', app()->getLocale())->with('danger', ' Email mancante');
+            return redirect()->route('profile')->with('danger', ' Email mancante');
 
         }
 
         $customer->update($data);
 
-        return redirect()->route('profile', app()->getLocale())->with('success', ' Profilo modificato con successo!');
+        return redirect()->route('profile')->with('success', ' Profilo modificato con successo!');
     }
 }

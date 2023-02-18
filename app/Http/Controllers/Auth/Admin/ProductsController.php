@@ -131,7 +131,7 @@ class ProductsController extends Controller
             $product->categories()->sync(\request()->input('categories', []));
             $product->attributes()->sync(\request()->input('attributes', []));
 
-            return redirect()->route('products.index', app()->getLocale()
+            return redirect()->route('products.index'
             )->with([
                 'product' => $product
             ])->with('success', 'Prodotto creato con successo!');
@@ -261,7 +261,7 @@ class ProductsController extends Controller
         try {
             $product->categories()->sync(\request()->input('categories', []));
             $product->save();
-            return redirect()->route('products.index', app()->getLocale()
+            return redirect()->route('products.index'
             )->with([
                 'product' => $product
             ])->with('success', 'Prodotto modificato con successo!');
@@ -287,7 +287,7 @@ class ProductsController extends Controller
             abort(404);
         }
         $product->delete();
-        return redirect()->route('products.index', app()->getLocale()
+        return redirect()->route('products.index'
         )->with([
             'product' => $product
         ])->with('success', 'Prodotto eliminato con successo!');
@@ -304,7 +304,7 @@ class ProductsController extends Controller
             'img_01' => null,
         ]);
 
-        return redirect()->route('products.index', app()->getLocale())->with('success', 'Immagine # 2 eliminata con successo!');
+        return redirect()->route('products.index')->with('success', 'Immagine # 2 eliminata con successo!');
     }
 
     public function remove2( $id)
@@ -318,7 +318,7 @@ class ProductsController extends Controller
             'img_02' => null,
         ]);
 
-        return redirect()->route('products.index', app()->getLocale())->with('success', 'Immagine # 2 eliminata con successo!');
+        return redirect()->route('products.index')->with('success', 'Immagine # 2 eliminata con successo!');
     }
 
     public function remove3( $id)
@@ -334,7 +334,7 @@ class ProductsController extends Controller
         ]);
 
 
-        return redirect()->route('products.index', app()->getLocale())->with('success', 'Immagine # 3 eliminata con successo!');
+        return redirect()->route('products.index')->with('success', 'Immagine # 3 eliminata con successo!');
     }
 
     public function removeAttachment( $id)
@@ -349,7 +349,7 @@ class ProductsController extends Controller
             'attachment' => null,
         ]);
 
-        return redirect()->route('products.index', app()->getLocale())->with('success', 'Immagine # 2 eliminata con successo!');
+        return redirect()->route('products.index')->with('success', 'Immagine # 2 eliminata con successo!');
     }
 
     public
@@ -361,7 +361,7 @@ class ProductsController extends Controller
         $product->item_name = htmlspecialchars($product->item_name . Str::random(1));
         $product->slug = Str::slug($product->item_name);
         $product->save();
-        return redirect()->route('products.index', app()->getLocale()
+        return redirect()->route('products.index'
         )->with([
             'product' => $product
         ])->with('success', 'Prodotto duplicato con successo!');
@@ -388,7 +388,7 @@ class ProductsController extends Controller
                 'items' => $items,
             ]);
         } else {
-            return redirect()->route('products.index', app()->getLocale())->with('danger', 'Corrispondenza non trovata');
+            return redirect()->route('products.index')->with('danger', 'Corrispondenza non trovata');
         }
     }
 }

@@ -3,7 +3,7 @@
 @section('body')
     <h3 class="text-gray-700 text-3xl font-medium">Categorie</h3>
     <div class="mt-10">
-        <a href="{{route('categories.create', app()->getLocale())}}"
+        <a href="{{route('categories.create')}}"
            class="btn px-6 py-2.5 bg-green-600 hover:bg-green-700 text-white font-medium text-xs leading-tight uppercase rounded shadow-md  hover:shadow-lg focus:bg-green-900  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out items-center">
             Nuova categoria
         </a>
@@ -53,7 +53,7 @@
                                 <a data-toggle="tooltip" data-placement="bottom"
                                    class="px-4 py-2.5 ml-2 bg-yellow-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-yellow-700 hover:shadow-lg focus:bg-yellow-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-yellow-800 active:shadow-lg transition duration-150 ease-in-out"
                                    title="Modifica"
-                                   href="{{ route('categories.edit',['lang' => app()->getLocale(), $category->id]) }}"
+                                   href="{{ route('categories.edit',[ $category->id]) }}"
                                    id="btLeft"><i
                                             class="fas fa-edit" title="Modifica"></i></a>
                                 <div
@@ -126,7 +126,7 @@
                                                 </div>
                                                 <div class="bg-gray-50 px-4 pb-7 sm:px-6 sm:flex sm:flex-row-reverse">
                                                     <form
-                                                            action="{{ route('categories.destroy' ,['lang' => app()->getLocale(), $category->id]) }}"
+                                                            action="{{ route('categories.destroy' ,[ $category->id]) }}"
                                                             method="POST" enctype="multipart/form-data">
                                                         @csrf
                                                         @method('DELETE')

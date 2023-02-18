@@ -149,7 +149,7 @@ class CartController extends Controller
         $coupon = Coupon::where('code', $request->coupon_code)->first();
 
         if (!$coupon) {
-            return redirect()->route('cart', app()->getLocale())->withErrors('Coupon non valido! Si prega di riprovare.');
+            return redirect()->route('cart')->withErrors('Coupon non valido! Si prega di riprovare.');
         }
 
         session()->put('coupon', [
@@ -158,7 +158,7 @@ class CartController extends Controller
             'discount' => $coupon->discount(getNumbers()->get('total')),
         ]);
 
-        return redirect()->route('cart', app()->getLocale())->with('success', 'Coupon valido applicato con successo');
+        return redirect()->route('cart')->with('success', 'Coupon valido applicato con successo');
     }
 
 

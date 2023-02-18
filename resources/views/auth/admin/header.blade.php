@@ -8,7 +8,7 @@
         </button>
         <div class="relative mx-4 lg:mx-0 ">
             <form class="input-group px-3" id="mysearch"
-                  action="{{route('searchOrder',app()->getLocale())}}"
+                  action="{{route('searchOrder')}}"
                   method="POST" role="search">
                 {{ csrf_field() }}
                 <label class="sr-only" for="search">Search</label>
@@ -67,7 +67,7 @@
                     @foreach( $notifications as $notify)
 
                         @if($notify->order_id)
-                            <a href="{{ route('adminOrders.show',['lang' => app()->getLocale(), $notify->order_id]) }}"
+                            <a href="{{ route('adminOrders.show',[ $notify->order_id]) }}"
                                class="flex items-center px-4 py-3 text-gray-600 hover:text-white hover:bg-blue-900 -mx-2">
                                 <svg class="svg-icon font-size-11" viewBox="0 0 20 20" style="height:20px">
                                     <path
@@ -83,7 +83,7 @@
                         @foreach( collect(json_decode($notify->data, true)) as $key => $value )
                             @if($key == 'email_subscription')
 
-                                <a href="{{ route('subscribers.index',['lang' => app()->getLocale()]) }}"
+                                <a href="{{ route('subscribers.index') }}"
                                    class="flex items-center px-4 py-3 text-gray-600 hover:text-white hover:bg-blue-900 -mx-2">
                                     <svg class="svg-icon font-size-11" viewBox="0 0 20 20" style="height:20px">
                                         <path
@@ -99,7 +99,7 @@
                         @endforeach
                         @foreach( collect(json_decode($notify->data, true)) as $key => $value )
                             @if($key == 'billing_name')
-                                <a href="{{ route('customers.index',['lang' => app()->getLocale()]) }}"
+                                <a href="{{ route('customers.index') }}"
                                    class="flex items-center px-4 py-3 text-gray-600 hover:text-white hover:bg-blue-900 -mx-2">
                                     <svg class="svg-icon font-size-11" viewBox="0 0 20 20" style="height:20px">
                                         <path
@@ -152,12 +152,12 @@
                     {{--                    <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>--}}
 
                     <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-900 hover:text-white"
-                       href="{{ route('logout', ['lang' => app()->getLocale()]) }}"
+                       href="{{route('logout')}}"
                        onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
                         {{ __('Esci') }}
                     </a>
-                    <form id="logout-form" action="{{ route('adminLogout', app()->getLocale()) }}" method="POST"
+                    <form id="logout-form" action="{{ route('adminLogout') }}" method="POST"
                           class="d-none">
                         @csrf
                     </form>

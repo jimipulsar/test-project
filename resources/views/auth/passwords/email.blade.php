@@ -7,7 +7,7 @@
     <div class="page-header breadcrumb-wrap">
         <div class="container">
             <div class="breadcrumb">
-                <a href="{{route('home', app()->getLocale())}}" rel="nofollow"><i
+                <a href="{{route('home')}}" rel="nofollow"><i
                             class="fi-rs-home mr-5"></i>Home</a>
                 <span></span> Password reset
             </div>
@@ -40,7 +40,7 @@
                                     <p class="mb-30">Non preoccuparti, ti abbiamo preso noi! Ti procuriamo una nuova
                                         password. Per favore inserisci il tuo indirizzo email.</p>
                                 </div>
-                                <form method="POST" action="{{ route('password.email',app()->getLocale()) }}">
+                                <form method="POST" action="{{ route('password.email') }}">
                                     @csrf
                                     <div class="form-group">
                                         <input id="email" type="email"

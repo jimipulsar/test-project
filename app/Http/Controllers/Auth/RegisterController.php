@@ -84,13 +84,13 @@ class RegisterController extends Controller
             'thanks' => 'Grazie!',
             'subject' => 'Nuova registrazione al sito web',
             'actionText' => 'AREA RISERVATA',
-            'actionURL' => url(env('APP_URL') . '/' . app()->getLocale() . env('APP_ADMIN_URL') ),
+            'actionURL' => url(env('APP_URL') . env('APP_ADMIN_URL') ),
             'email' =>   $user->email,
             'billing_name' => $user->billing_name
         ];
         Notification::send($userAdmin, new NewRegistrationNotification($details));
 
-        return redirect()->route('home', app()->getLocale())->with('success', 'Ti sei registrato con successo!');
+        return redirect()->route('home')->with('success', 'Ti sei registrato con successo!');
 //
 //        return $request->wantsJson()
 //            ? new JsonResponse([], 201)
@@ -166,7 +166,7 @@ class RegisterController extends Controller
 
     }
 
-    // return redirect()->route('home', app()->getLocale())->with('success', 'Registrazione avvenuta');
+    // return redirect()->route('home')->with('success', 'Registrazione avvenuta');
 
     public function redirectPath()
     {

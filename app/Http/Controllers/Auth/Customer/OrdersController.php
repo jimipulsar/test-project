@@ -67,7 +67,7 @@ class OrdersController extends Controller
             ]);
 
         } else {
-            return redirect()->route('index', app()->getLocale());
+            return redirect()->route('index');
         }
     }
 

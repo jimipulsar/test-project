@@ -28,7 +28,7 @@ class CouponController extends Controller
             }
             return view('auth.admin.coupon.index', ['coupons' => $coupons]);
         } else {
-            return redirect()->route('index', app()->getLocale());
+            return redirect()->route('index');
         }
     }
 
@@ -96,7 +96,7 @@ class CouponController extends Controller
             'value' => $request->input('value'),
             'percent_off' => $request->input('percent_off'),
         ]);
-        return redirect()->route('coupon.index', app()->getLocale())->with('success', 'Coupon modificato con successo');
+        return redirect()->route('coupon.index')->with('success', 'Coupon modificato con successo');
     }
 
     /**

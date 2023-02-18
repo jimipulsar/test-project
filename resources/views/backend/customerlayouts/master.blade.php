@@ -96,7 +96,7 @@
 
                             <div class="product product-cart">
                                 <div class="product-detail">
-                                    <a href="{{ route('shop.show',['lang'=>app()->getLocale(),$id,$details['slug']]) }}"
+                                    <a href="{{ route('shop.show',[$id,$details['slug']]) }}"
                                        class="product-name">{{$details['name']}}</a>
                                     <div class="price-box">
                                         <span class="product-quantity">{{$details['quantity']}}</span>
@@ -104,14 +104,14 @@
                                     </div>
                                 </div>
                                 <figure class="product-media">
-                                    <a href="{{ route('shop.show',['lang'=>app()->getLocale(),$id,$details['slug']]) }}">
+                                    <a href="{{ route('shop.show',[$id,$details['slug']]) }}">
                                         <img src="{{'/uploads/products/images/' . $details['img_01'] }}"
                                              alt="product" height="84"
                                              width="94"/>
                                     </a>
                                 </figure>
                                 <a class="btn btn-link btn-close" aria-label="button"
-                                   href="{{route('remove', ['lang'=>app()->getLocale(),$id])}}">
+                                   href="{{route('remove', [$id])}}">
                                     <i class="fas fa-times"></i>
                                 </a>
 
@@ -126,9 +126,9 @@
                     </div>
 
                     <div class="cart-action">
-                        <a href="{{route('cart', app()->getLocale())}}"
+                        <a href="{{route('cart')}}"
                            class="btn btn-dark btn-outline btn-rounded">Carrello</a>
-                        <a href="{{route('checkout', app()->getLocale())}}"
+                        <a href="{{route('checkout')}}"
                            class="btn btn-primary  btn-rounded">Checkout</a>
                     </div>
                 </div>

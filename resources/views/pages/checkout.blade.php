@@ -30,8 +30,8 @@
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="{{route('index', app()->getLocale())}}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                    <span></span> <a href="{{route('shop.index', app()->getLocale())}}" rel="nofollow">Shop</a>
+                    <a href="{{route('adminLogin')}}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                    <span></span> <a href="{{route('shop.index')}}" rel="nofollow">Shop</a>
                     <span></span> Checkout
                 </div>
             </div>
@@ -55,7 +55,7 @@
                 <div class="col-lg-7">
                     <div class="row">
                         <h4 class="mb-30">      {!! __('checkout.address.first') !!}</h4>
-                        <form action="{{ route('checkout.store', app()->getLocale()) }}" method="POST"
+                        <form action="{{ route('checkout.store') }}" method="POST"
                               enctype="multipart/form-data"
                               id="payment-form">
                             @csrf
@@ -2290,17 +2290,17 @@
                                             @if(file_exists(public_path('storage/images/' .$details['img_01'])))
                                                 <td class="image product-thumbnail"><img
                                                             src="{{'/storage/images/' . $details['img_01'] }}"
-                                                            alt="{{ route('shop.show',['lang'=>app()->getLocale(),$id,$details['slug']]) }}">
+                                                            alt="{{ route('shop.show',[$id,$details['slug']]) }}">
                                                 </td>
                                             @else
                                                 <td class="image product-thumbnail"><img
                                                             src="{{'/uploads/default/default.jpg' }}"
-                                                            alt="{{ route('shop.show',['lang'=>app()->getLocale(),$id,$details['slug']]) }}">
+                                                            alt="{{ route('shop.show',[$id,$details['slug']]) }}">
                                                 </td>
                                             @endif
                                             <td>
                                                 <h6 class="w-160 mb-5"><a
-                                                            href="{{ route('shop.show',['lang'=>app()->getLocale(),$id,$details['slug']]) }}"
+                                                            href="{{ route('shop.show',[$id,$details['slug']]) }}"
                                                             class="text-heading">{!! substr($details['name'], 0, 30)!!}{!! strlen($details['name']) > 30 ? '...' : ""!!}</a>
                                                 </h6>
 

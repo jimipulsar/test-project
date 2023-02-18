@@ -119,7 +119,7 @@ class SliderController extends Controller
         }
 
         $slide->save();
-        return redirect()->route('sliders.index', app()->getLocale()
+        return redirect()->route('sliders.index'
         )->with([
             'slide' => $slide
         ])->with('success', 'Slider modificata con successo!');

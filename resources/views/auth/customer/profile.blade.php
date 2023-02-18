@@ -6,7 +6,7 @@
     <div class="page-header breadcrumb-wrap">
         <div class="container">
             <div class="breadcrumb">
-                <a href="{{route('home', app()->getLocale())}}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                <a href="{{route('home')}}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
                  <span></span> Il mio profilo
             </div>
         </div>
@@ -29,7 +29,7 @@
                                     <h5>Il mio profilo</h5>
                                 </div>
                                 <div class="card-body">
-                                    <form action="{{ route('update', ['lang' => app()->getLocale(),$customer->id]) }}"
+                                    <form action="{{ route('update', [$customer->id]) }}"
                                           method="POST"
                                           enctype="multipart/form-data">
                                         @csrf

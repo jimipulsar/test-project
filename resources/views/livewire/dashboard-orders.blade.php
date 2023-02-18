@@ -66,14 +66,14 @@
                     <tr class="bg-white">
                         <td class="px-6 py-4 text-left whitespace-nowrap text-sm text-gray-500">
                             <div class="flex items-center">
-                                <a href="{{ route('adminOrders.show',['lang' => app()->getLocale(), $order->id]) }}"
+                                <a href="{{ route('adminOrders.show',[ $order->id]) }}"
                                    class="group inline-flex space-x-2 truncate text-sm">
                                     <div class="flex-shrink-0 h-10 w-10">
                                         <img class="h-10 w-10" src="/uploads/icon/order.svg"
                                              alt=""/>
                                     </div>
                                 </a>
-                                <a href="{{ route('adminOrders.show',['lang' => app()->getLocale(), $order->id]) }}"
+                                <a href="{{ route('adminOrders.show',[ $order->id]) }}"
                                    class="ml-3">
 
 

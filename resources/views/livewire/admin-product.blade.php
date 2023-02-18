@@ -158,18 +158,18 @@
                                 <a data-toggle="tooltip" data-placement="bottom"
                                    class="px-4 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
                                    title="Visualizza"
-                                   href="{{ route('shop.show',[ 'lang'=>app()->getLocale(),$item->id, $item->slug]) }}"
+                                   href="{{ route('products.show', $item->id, $item->slug) }}"
                                    target="_blank" id="btLeft"><i
                                             class="fas fa-eye" title="Visualizza"></i></a>
                                 <a class="px-4 py-2.5 ml-2 bg-green-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out"
-                                   href="{{ route('products.duplicate',[ 'lang'=>app()->getLocale(),$item->id]) }}"
+                                   href="{{ route('products.duplicate',[ $item->id]) }}"
                                    data-toggle="tooltip" data-placement="bottom" title="Duplica" id="btLeft"><i
                                             class="far fa-copy"></i></a>
 
                                 <a data-toggle="tooltip" data-placement="bottom"
                                    class="px-4 py-2.5 ml-2 bg-yellow-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-yellow-700 hover:shadow-lg focus:bg-yellow-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-yellow-800 active:shadow-lg transition duration-150 ease-in-out"
                                    title="Modifica"
-                                   href="{{ route('products.edit',['lang' => app()->getLocale(), $item->id]) }}"
+                                   href="{{ route('products.edit',[ $item->id]) }}"
                                    id="btLeft"><i
                                             class="fas fa-edit" title="Modifica"></i></a>
                                 <div
@@ -227,26 +227,26 @@
                                                         <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                                                             <h3 class="text-lg leading-6 font-medium text-gray-900"
                                                                 id="modal-title">
-                                                                {{__('product.alertProduct')}}
+                                                                Sei sicuro di voler eliminare
                                                                 <br><strong>{{ $item->item_name }}</strong> ?
                                                             </h3>
                                                             <div class="mt-2">
                                                                 <p class="text-sm text-gray-500">
-                                                                    {{__('product.alertSentenceProduct')}}
+                                                                    È possibile annullare un ordine solo se non è stato ancora spedito. Questa azione è irreversibile.
                                                                 </p>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="bg-gray-50 px-4 pb-7 sm:px-6 sm:flex sm:flex-row-reverse">
-                                                    <form action="{{ route('products.destroy' ,['lang' => app()->getLocale(), $item->id]) }}"
+                                                    <form action="{{ route('products.destroy' ,[ $item->id]) }}"
                                                           method="POST" enctype="multipart/form-data">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button type="submit" data-toggle="modal"
                                                                 data-target="#my-modal"
                                                                 class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto  mt-3">
-                                                            {{__('product.yesProduct')}}
+                                                            Si, voglio eliminare questo prodotto
                                                         </button>
                                                     </form>
                                                     <div class="flex items-center justify-between">
@@ -254,7 +254,7 @@
 
                                                         <button type="button" class="z-50 cursor-pointer"
                                                                 @click="showModal = false">
-                                                            <h5 class="w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500  sm:ml-3 sm:w-auto  mt-3">  {{__('product.no')}}</h5>
+                                                            <h5 class="w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500  sm:ml-3 sm:w-auto  mt-3">No</h5>
                                                         </button>
                                                     </div>
                                                 </div>

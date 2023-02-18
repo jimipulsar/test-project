@@ -126,7 +126,7 @@ class AdminOrderController extends Controller
         $transactionUpdate->status = 'completed';
         $transactionUpdate->save();
 
-        return redirect()->route('adminOrders.show', ['lang' => app()->getLocale(), $order->id])->with('success', 'Spedizione confermata');
+        return redirect()->route('adminOrders.show', [ $order->id])->with('success', 'Spedizione confermata');
     }
 
     /**
@@ -142,6 +142,6 @@ class AdminOrderController extends Controller
         $orderId->status = "decline";
         $orderId->is_shipped = "0";
         $orderId->update();
-        return redirect()->route('dashboard', app()->getLocale())->with('success', 'Hai annullato correttamente un ordine!');
+        return redirect()->route('dashboard')->with('success', 'Hai annullato correttamente un ordine!');
     }
 }

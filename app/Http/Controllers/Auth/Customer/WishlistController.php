@@ -29,7 +29,7 @@ class WishlistController extends Controller
                 'wishlist' => $wishlist,
             ]);
         } else {
-            return redirect()->route('home', app()->getLocale());
+            return redirect()->route('home');
 
         }
     }
@@ -78,7 +78,7 @@ class WishlistController extends Controller
             ];
             session()->put('wishlist', $wishSession);
 
-            return redirect()->route('home', app()->getLocale())->with('danger', "Hai bisogno di effettuare l'accesso");
+            return redirect()->route('home')->with('danger', "Hai bisogno di effettuare l'accesso");
         }
     }
 

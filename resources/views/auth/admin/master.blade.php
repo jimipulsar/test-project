@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-') }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -129,7 +129,7 @@
 @yield('javascript')
 <livewire:scripts/>
 <script>
-    window.livewire_app_url = '{{route('index')}}';
+    window.livewire_app_url = '{{route('adminLogin')}}';
 </script>
 <script src="https://cdn.jsdelivr.net/gh/livewire/sortable@v0.x.x/dist/livewire-sortable.js"></script>
 </body>

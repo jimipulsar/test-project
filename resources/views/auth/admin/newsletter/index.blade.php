@@ -101,7 +101,7 @@
                                             </div>
                                             <div class="bg-gray-50 px-4 pb-7 sm:px-6 sm:flex sm:flex-row-reverse">
                                                 <form
-                                                    action="{{ route('subscribers.destroy' ,[ 'lang'=>app()->getLocale(), $subscribe->id]) }}"
+                                                    action="{{ route('subscribers.destroy' ,[  $subscribe->id]) }}"
                                                     method="post">
 
                                                     @csrf

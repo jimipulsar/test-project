@@ -15,10 +15,10 @@
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="{{route('index', app()->getLocale())}}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                    <span></span> <a href="{{route('shop.index', app()->getLocale())}}">Categorie</a>
+                    <a href="{{route('adminLogin')}}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                    <span></span> <a href="{{route('shop.index')}}">Categorie</a>
                     <span></span> <a
-                            href="{{ route('categoryPage',['lang'=>app()->getLocale(),productDetails($product->id)['category_id'],  productDetails($product->id)['category_slug']]) }}"> {{ucFirst(productDetails($product->id)['name'])}}</a>
+                            href="{{ route('categoryPage',[productDetails($product->id)['category_id'],  productDetails($product->id)['category_slug']]) }}"> {{ucFirst(productDetails($product->id)['name'])}}</a>
                 </div>
             </div>
         </div>
@@ -212,7 +212,7 @@
                                                                     </div>
                                                                     <div class="deal-content detail-info">
                                                                         <form class="custom-form"
-                                                                              action="{{route('sendProduct', app()->getLocale())}}"
+                                                                              action="{{route('sendProduct')}}"
                                                                               name="contactform" id=""
                                                                               method="post">
                                                                             @csrf
@@ -275,7 +275,7 @@
                                                 <!-- Modal -->
                                                 @else
                                                     <button type="button"
-                                                            onclick="location.href='{{route('addcart', ['lang'=>app()->getLocale(), $product->id])}}';"
+                                                            onclick="location.href='{{route('addcart', [ $product->id])}}';"
                                                             class="button button-add-to-cart"><i
                                                                 class="fi-rs-shopping-cart"></i>Aggiungi al carrello
                                                     </button>
@@ -283,7 +283,7 @@
 
                                                 @if(isset($customerFavourites))
                                                     <a aria-label="Aggiungi alla wishlist" class="action-btn hover-up"
-                                                       href="{{route('removewish', ['lang'=>app()->getLocale(),$product->id])}}"
+                                                       href="{{route('removewish', [$product->id])}}"
                                                        style="    display: inline-block;
     color: #fff;
     border: 1px solid transparent;
@@ -295,7 +295,7 @@
                                                                 class="fi-rs-heart"></i></a>
                                                 @endif
                                                 <a aria-label="Confronta" class="action-btn hover-up"
-                                                   href="{{route('addToCompare', ['lang'=>app()->getLocale(), $product->id,$product->slug])}}"><i
+                                                   href="{{route('addToCompare', [ $product->id,$product->slug])}}"><i
                                                             class="fi-rs-shuffle"></i></a>
                                             </div>
                                             <div class="font-xs mt-2">
@@ -303,7 +303,7 @@
 
                                                     <li class="mb-5">Categoria: <span
                                                                 class="text-brand">        <a
-                                                                    href="{{ route('categoryPage',['lang'=>app()->getLocale(),$productDetails['category_id'],  $productDetails['category_slug']]) }}">{{ucFirst($productDetails['name'])}}</a></span>
+                                                                    href="{{ route('categoryPage',[$productDetails['category_id'],  $productDetails['category_slug']]) }}">{{ucFirst($productDetails['name'])}}</a></span>
                                                     </li>
                                                 </ul>
                                                 <ul class="float-start">
@@ -417,7 +417,7 @@
                                             <div class="product-cart-wrap hover-up">
                                                 <div class="product-img-action-wrap">
                                                     <div class="product-img product-img-zoom">
-                                                        <a href="{{ route('shop.show',[ 'lang'=>app()->getLocale(),$c->id,$c->slug]) }}"
+                                                        <a href="{{ route('shop.show',[ $c->id,$c->slug]) }}"
                                                            tabindex="0">
                                                             @if(file_exists(public_path('storage/images/' .$c->img_01)))
                                                                 <img class="default-img"
@@ -447,7 +447,7 @@
                                                            tabindex="0"><i
                                                                     class="fi-rs-heart"></i></a>
                                                         <a aria-label="Confronta" class="action-btn small hover-up"
-                                                           href="{{route('addToCompare', ['lang'=>app()->getLocale(), $c->id,$c->slug])}}"
+                                                           href="{{route('addToCompare', [ $c->id,$c->slug])}}"
                                                            tabindex="0"><i
                                                                     class="fi-rs-shuffle"></i></a>
                                                     </div>
@@ -458,7 +458,7 @@
                                                 </div>
                                                 <div class="product-content-wrap">
                                                     <h2>
-                                                        <a href="{{ route('shop.show',[ 'lang'=>app()->getLocale(),$c->id,$c->slug]) }}"
+                                                        <a href="{{ route('shop.show',[ $c->id,$c->slug]) }}"
                                                            tabindex="0">{{$c->item_name}}</a></h2>
 
                                                     <div class="product-price" hidden>

@@ -4,7 +4,7 @@
     <h3 class="text-gray-700 text-3xl font-medium">Modifica Prodotto</h3>
     <div class="md:grid md:grid-cols-3 md:gap-6 mt-10 mb-10">
         <div class="mt-5 md:mt-0 md:col-span-6">
-            <form action="{{ route('products.update',['lang' => app()->getLocale(), $product->id]) }}"
+            <form action="{{ route('products.update',[ $product->id]) }}"
                   method="POST"
                   enctype="multipart/form-data">
                 @csrf
@@ -240,7 +240,7 @@
                                                                 </div>
                                                             </div>
                                                             <div class="bg-gray-50 px-4 pb-7 sm:px-6 sm:flex sm:flex-row-reverse">
-                                                                <a href="{{ route('removeAttachment' ,['lang' => app()->getLocale(), $product->id]) }}"
+                                                                <a href="{{ route('removeAttachment' ,[ $product->id]) }}"
                                                                    data-toggle="modal"
                                                                    data-target="#my-modal"
                                                                    class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto  mt-3">
@@ -261,7 +261,7 @@
                                                 </div>
                                             </div>
                                             {{--                                                <a class="pt-2 ml-3 inline-flex justify-center py-2 px-4 mr-5 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-900 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"--}}
-                                            {{--                                                   href="{{ route('removeAttachment' ,['lang' => app()->getLocale(), $product->id]) }}"--}}
+                                            {{--                                                   href="{{ route('removeAttachment' ,[ $product->id]) }}"--}}
                                             {{--                                                > <i class="fas fa-trash-alt mr-2 mt-1"></i> Elimina</a>--}}
                                         @endif
                                     </div>
@@ -404,7 +404,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="bg-gray-50 px-4 pb-7 sm:px-6 sm:flex sm:flex-row-reverse">
-                                                        <a href="{{ route('remove1' ,['lang' => app()->getLocale(), $product->id]) }}"
+                                                        <a href="{{ route('remove1' ,[ $product->id]) }}"
                                                            data-toggle="modal"
                                                            data-target="#my-modal"
                                                            class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto  mt-3">
@@ -538,7 +538,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="bg-gray-50 px-4 pb-7 sm:px-6 sm:flex sm:flex-row-reverse">
-                                                    <a href="{{ route('remove2' ,['lang' => app()->getLocale(), $product->id]) }}"
+                                                    <a href="{{ route('remove2' ,[ $product->id]) }}"
                                                        data-toggle="modal"
                                                        data-target="#my-modal"
                                                        class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto  mt-3">
@@ -666,7 +666,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="bg-gray-50 px-4 pb-7 sm:px-6 sm:flex sm:flex-row-reverse">
-                                                    <a href="{{ route('remove3' ,['lang' => app()->getLocale(), $product->id]) }}"
+                                                    <a href="{{ route('remove3' ,[ $product->id]) }}"
                                                        data-toggle="modal"
                                                        data-target="#my-modal"
                                                        class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto  mt-3">

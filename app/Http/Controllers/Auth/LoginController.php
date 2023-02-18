@@ -113,7 +113,7 @@ class LoginController extends Controller
             event(new CustomerLoginHistory($customer));
 
 //            RateLimiter::clear($this->throttleKey());
-            return redirect()->route('orders.index', app()->getLocale())->with('success', 'Autenticazione avvenuta!');
+            return redirect()->route('orders.index')->with('success', 'Autenticazione avvenuta!');
 
 
         } else {
@@ -160,7 +160,7 @@ class LoginController extends Controller
         Auth::guard('customer')->logout();
 //        Session::flush();
 
-        return redirect()->route('home', app()->getLocale())->with('success', 'Sei uscito correttamente');
+        return redirect()->route('home')->with('success', 'Sei uscito correttamente');
 
     }
 

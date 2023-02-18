@@ -6,7 +6,7 @@
     <div class="page-header breadcrumb-wrap">
         <div class="container">
             <div class="breadcrumb">
-                <a href="{{route('home', app()->getLocale())}}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                <a href="{{route('home')}}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
                  <span></span> I miei ordini
             </div>
         </div>
@@ -60,7 +60,7 @@
                                                         @endif
                                                         <td>€ {{ price($order->grand_total)}}</td>
                                                         <td>
-                                                            <a href="{{route('orders.show', ['lang' => app()->getLocale(), $order->id])}}"
+                                                            <a href="{{route('orders.show', [ $order->id])}}"
                                                                class="btn-small d-block">Mostra</a></td>
                                                     </tr>
                                                 @endforeach
@@ -135,7 +135,7 @@
     {{--                                                    <span class="order-price">€ {{ price($order->grand_total)}}</span>--}}
     {{--                                                </td>--}}
     {{--                                                <td class="order-action">--}}
-    {{--                                                    <a href="{{route('orders.show', ['lang' => app()->getLocale(), $order->id])}}"--}}
+    {{--                                                    <a href="{{route('orders.show', [ $order->id])}}"--}}
     {{--                                                       class="btn btn-outline btn-default btn-block btn-sm btn-rounded">Mostra</a>--}}
     {{--                                                </td>--}}
     {{--                                            </tr>--}}
@@ -145,7 +145,7 @@
     {{--                                @else--}}
     {{--                                    <h4>{!! __('customer.noOrders') !!}</h4>--}}
     {{--                                @endif--}}
-    {{--                                <a href="{{route('index', app()->getLocale())}}"--}}
+    {{--                                <a href="{{route('adminLogin')}}"--}}
     {{--                                   class="btn btn-dark btn-rounded btn-icon-right">Vai--}}
     {{--                                    in Home Page<i class="w-icon-long-arrow-right"></i></a>--}}
     {{--                            </div>--}}

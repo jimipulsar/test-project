@@ -46,7 +46,7 @@ class AdminController extends Controller
     public function getLogin()
     {
         if (auth()->guard('admin')->user()) {
-            return redirect()->route('dashboard', app()->getLocale());
+            return redirect()->route('dashboard');
         }
         return view('auth.admin.login');
     }
@@ -65,7 +65,7 @@ class AdminController extends Controller
             $admin = auth()->guard('admin')->user();
 
             event(new AdminLoginHistory($admin));
-            return redirect()->route('dashboard', app()->getLocale())->with('success', 'Autenticazione avvenuta!');
+            return redirect()->route('dashboard')->with('success', 'Autenticazione avvenuta!');
 
         } else {
             return $this->sendFailedLoginResponse($request);
@@ -114,13 +114,13 @@ class AdminController extends Controller
     public function logout(Request $request)
     {
         Auth::guard('admin')->logout();
-        return redirect()->route('adminLogin', app()->getLocale());
+        return redirect()->route('adminLogin');
     }
 
     public function adminLogout()
     {
         auth()->guard('admin')->logout();
-        return redirect()->route('adminLogin', app()->getLocale())->with('success', 'Sei uscito correttamente');
+        return redirect()->route('adminLogin')->with('success', 'Sei uscito correttamente');
     }
 
     public function login()
@@ -158,7 +158,7 @@ class AdminController extends Controller
                 'notifications' => $notifications,
             ]);
         } else {
-            return redirect()->route('index', app()->getLocale());
+            return redirect()->route('index');
         }
 
     }
@@ -192,7 +192,7 @@ class AdminController extends Controller
                 return redirect()->back()->with('danger', 'Corrispondenza non trovata');
             }
         } else {
-            return redirect()->route('index', app()->getLocale());
+            return redirect()->route('index');
         }
     }
 }

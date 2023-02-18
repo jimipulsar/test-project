@@ -5,7 +5,7 @@
     <h3 class="text-gray-700 text-3xl font-medium">Modifica Coupon</h3>
     <div class="md:grid md:grid-cols-3 md:gap-6 mt-10 mb-10">
         <div class="mt-5 md:mt-0 md:col-span-2">
-            <form action="{{ route('coupon.update',['lang' => app()->getLocale(), $coupon->id]) }}"
+            <form action="{{ route('coupon.update',[ $coupon->id]) }}"
                   enctype="multipart/form-data" method="post">
                 @csrf
                 @method('PUT')

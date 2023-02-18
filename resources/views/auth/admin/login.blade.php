@@ -14,7 +14,7 @@
                                 />
                                 <h4 class="text-xl font-semibold mt-1 mb-12 pb-1">Admin Dashboard </h4>
                             </div>
-                            <form action="{{ route('adminLoginPost', ['lang' => app()->getLocale()]) }}" method="post"
+                            <form action="{{ route('adminLoginPost'{{route('adminLogin')}}) }}" method="post"
                                   enctype="multipart/form-data">
                                 @csrf
                                 <p class="mb-4">Inserisci le tue credenziali per accedere all'area riservata</p>
@@ -56,7 +56,7 @@
                                     </button>
                                 </div>
                                 <div class="d-block text-center">
-                                    <a href="{{route('index', app()->getLocale())}}"
+                                    <a href="{{route('adminLogin')}}"
                                             class="inline-block px-6 py-2 border-2 border-red-600 text-red-600 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
                                             data-mdb-ripple="true"
                                             data-mdb-ripple-color="light">

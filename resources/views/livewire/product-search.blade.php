@@ -19,21 +19,21 @@ max-width: 750px !important;box-shadow: 4px 9px 12px #00000024;padding:22px !imp
                     <div class="col-lg-4 py-2">
                         @if(file_exists(public_path('storage/images/' .$product->img_01 )) && $product->img_01 != null)
                             <div class="shopping-cart-img">
-                                <a href="{{ route('shop.show',['lang'=>app()->getLocale(),$product->id,$product->slug]) }}"><img
+                                <a href="{{ route('shop.show',[$product->id,$product->slug]) }}"><img
                                         alt="Livewire" class="img-fluid" style="height:100px !important"
                                         src="{{'/storage/images/' . $product->img_01 ?? 'default.jpg' }}"/></a>
                             </div>
 
                         @else
                             <div class="shopping-cart-img">
-                                <a href="{{ route('shop.show',['lang'=>app()->getLocale(),$product->id,$product->slug]) }}"><img
+                                <a href="{{ route('shop.show',[$product->id,$product->slug]) }}"><img
                                         alt="{{Str::of('/uploads/default/default.jpg')->basename('.jpg')}}" class="img-fluid" style="height:100px !important"
                                         src="{{'/uploads/default/default.jpg' }}"/></a>
                             </div>
                         @endif
                         <div class="shopping-cart-title">
                             <p>
-                                <a href="{{ route('shop.show',['lang'=>app()->getLocale(),$product->id,$product->slug]) }}">{{$product->item_name}}</a>
+                                <a href="{{ route('shop.show',[$product->id,$product->slug]) }}">{{$product->item_name}}</a>
                             </p>
 
                         </div>

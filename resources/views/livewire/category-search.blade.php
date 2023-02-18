@@ -79,7 +79,7 @@
                              data-wow-delay=".1s">
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
-                                    <a href="{{ route('shop.show',[ 'lang'=>app()->getLocale(), $p->id,$p->slug]) }}">
+                                    <a href="{{ route('shop.show',[  $p->id,$p->slug]) }}">
                                         @if(file_exists(public_path('storage/images/' .$p->img_01 )) && $p->img_01 != null)
                                             <img class="default-img"
                                                  src="{{'/storage/images/' . $p->img_01 }}"
@@ -103,10 +103,10 @@
                                 </div>
                                 <div class="product-action-1">
                                     <a aria-label="Aggiungi alla Wishlist" class="action-btn"
-                                       href="{{route('addwishlist', ['lang' => app()->getLocale(), $p->id])}}"><i
+                                       href="{{route('addwishlist', [ $p->id])}}"><i
                                                 class="fi-rs-heart"></i></a>
                                     <a aria-label="Confronta" class="action-btn"
-                                       href="{{route('addToCompare', ['lang'=>app()->getLocale(), $p->id,$p->slug])}}"><i
+                                       href="{{route('addToCompare', [ $p->id,$p->slug])}}"><i
                                                 class="fi-rs-shuffle"></i></a>
                                 </div>
                             </div>
@@ -123,7 +123,7 @@
                                     Codice articolo: <a>{{__($p->item_code)}}
                                 </div>
                                 <h2>
-                                    <a href="{{ route('shop.show',[ 'lang'=>app()->getLocale(), $p->id,$p->slug]) }}">{{__($p->item_name)}}</a>
+                                    <a href="{{ route('shop.show',[  $p->id,$p->slug]) }}">{{__($p->item_name)}}</a>
                                 </h2>
                                 <div class="product-card-bottom">
                                     @if($p->shippable == false)
@@ -132,7 +132,7 @@
                                             {{--                                            <span class="old-price">$32.8</span>--}}
                                         </div>
                                         <div class="add-cart">
-                                            <a href="{{ route('shop.show',[ 'lang'=>app()->getLocale(), $p->id,$p->slug]) }}"
+                                            <a href="{{ route('shop.show',[  $p->id,$p->slug]) }}"
                                                class="add"
                                                title="Richiedi info"><i
                                                         class="fi-rs-envelope mr-5"></i>Richiedi info</a>
@@ -143,7 +143,7 @@
                                             {{--                                            <span class="old-price">$32.8</span>--}}
                                         </div>
                                         <div class="add-cart">
-                                            <a href="{{route('addcart', ['lang'=>app()->getLocale(), $p->id, $p->slug])}}"
+                                            <a href="{{route('addcart', [ $p->id, $p->slug])}}"
                                                class="add"
                                                title="Aggiungi al carrello"><i
                                                         class="fi-rs-shopping-cart mr-5"></i>Acquista</a>

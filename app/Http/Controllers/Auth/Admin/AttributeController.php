@@ -55,10 +55,10 @@ class AttributeController extends Controller
         $attribute->slug = $slug;
 
         if ($attribute->save()) {
-            return redirect()->route('attributes.index', app()->getLocale())->with(['success' => 'Attributo aggiunta con successo.']);
+            return redirect()->route('attributes.index')->with(['success' => 'Attributo aggiunta con successo.']);
         }
 
-        return redirect()->route('attributes.index', app()->getLocale())->with(['errors' => 'Impossibile aggiungere una categoria.']);
+        return redirect()->route('attributes.index')->with(['errors' => 'Impossibile aggiungere una categoria.']);
     }
 
     /**
@@ -70,7 +70,7 @@ class AttributeController extends Controller
     public function show( $id)
     {
         $attribute = Attribute::where('id', $id)->first();
-        return view('auth.admin.attributes.show', app()->getLocale(), ['attribute' => $attribute]);
+        return view('auth.admin.attributes.show', ['attribute' => $attribute]);
 
     }
 
@@ -110,7 +110,7 @@ class AttributeController extends Controller
         ]);
         $attribute->save();
 
-        return redirect()->route('attributes.index', app()->getLocale())->with(array('category' => $attribute))->with('success', 'Attributo modificata con successo!');
+        return redirect()->route('attributes.index')->with(array('category' => $attribute))->with('success', 'Attributo modificata con successo!');
     }
 
     /**

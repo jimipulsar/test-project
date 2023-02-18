@@ -7,23 +7,23 @@
     <meta name="referrer" content="always">
     <link rel="canonical" href="">
     <title> Admin Dashboard | {{ config('app.name') }}</title>
+    <script src="{{ asset('js/app.js') }}"></script>
     <meta name="description" content="">
     <!-- NO INDEX -->
     <meta name="robots" content="noindex, nofollow">
     <!-- END NO INDEX -->
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
     <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
-
     <!-- Font Awesome -->
-    <!-- Google Fonts -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/vendor/animate.css/animate.min.css">
     @yield('extraCss')
     <!-- Scripts -->
     <livewire:styles/>
 </head>
 <body>
-<script src="{{ asset('js/app.js') }}"></script>
 <div x-data="{ sidebarOpen: false }" class="flex h-screen bg-gray-200 font-roboto">
 
     @include('backend.adminlayouts.sidebar')

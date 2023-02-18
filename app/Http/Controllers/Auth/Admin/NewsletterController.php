@@ -36,7 +36,7 @@ class NewsletterController extends Controller
             }
             return view('auth.admin.newsletter.index', ['subscribers' => $subscribers]);
         } else {
-            return redirect()->route('index', app()->getLocale());
+            return redirect()->route('index');
         }
     }
 
@@ -62,7 +62,7 @@ class NewsletterController extends Controller
             'thanks' => 'Grazie!',
             'subject' => 'Nuova iscrizione Newsletter',
             'actionText' => 'AREA RISERVATA',
-            'actionURL' => url(env('APP_URL') . '/' . app()->getLocale() . env('APP_ADMIN_URL') ),
+            'actionURL' => url(env('APP_URL') . env('APP_ADMIN_URL') ),
             'email_subscription' =>   $newsletterId->emailSubscription,
         ];
         Notification::send($user, new NewsletterPlacedNotification($details));

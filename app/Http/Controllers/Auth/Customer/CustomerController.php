@@ -30,7 +30,7 @@ class CustomerController extends Controller
                 'customer' => $customer,
             ]);
         } else {
-            return redirect()->route('index', app()->getLocale());
+            return redirect()->route('index');
         }
 
     }
@@ -76,7 +76,7 @@ class CustomerController extends Controller
         /**
          * after everything is done return them pack to /profile/ uri
          **/
-        return redirect()->route('address', app()->getLocale())->with('success', ' Profilo modificato con successo!');
+        return redirect()->route('address')->with('success', ' Profilo modificato con successo!');
     }
 
     public function destroy( $id)

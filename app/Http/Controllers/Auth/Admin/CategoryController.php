@@ -59,10 +59,10 @@ class CategoryController extends Controller
         $category->parent_id = $request->parent_id;
 
         if ($category->save() ) {
-            return redirect()->route('categories.index', app()->getLocale())->with(['success' => 'Categoria aggiunta con successo.']);
+            return redirect()->route('categories.index')->with(['success' => 'Categoria aggiunta con successo.']);
         }
 
-        return redirect()->route('categories.index', app()->getLocale())->with(['errors' => 'Impossibile aggiungere una categoria.']);
+        return redirect()->route('categories.index')->with(['errors' => 'Impossibile aggiungere una categoria.']);
     }
 
     /**
@@ -74,7 +74,7 @@ class CategoryController extends Controller
     public function show( $slug)
     {
         $category = Category::where('category_slug', $slug)->first();
-        return view('auth.admin.categories.show', app()->getLocale())->with(array('category' => $category));
+        return view('auth.admin.categories.show')->with(array('category' => $category));
 
     }
 
@@ -110,7 +110,7 @@ class CategoryController extends Controller
         ]);
         $category->save();
 
-        return redirect()->route('categories.index', app()->getLocale())->with(array('category' => $category))->with('success','Categoria modificata con successo!');
+        return redirect()->route('categories.index')->with(array('category' => $category))->with('success','Categoria modificata con successo!');
     }
 
     /**

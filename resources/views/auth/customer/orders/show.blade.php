@@ -8,8 +8,8 @@
     <div class="page-header breadcrumb-wrap">
         <div class="container">
             <div class="breadcrumb">
-                <a href="{{route('home', app()->getLocale())}}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                <span> </span> <a href="{{route('orders.index', app()->getLocale())}}" rel="nofollow"><i
+                <a href="{{route('home')}}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                <span> </span> <a href="{{route('orders.index')}}" rel="nofollow"><i
                         class="fi-rs-list mr-5"></i>My Orders</a>
                 <span> </span>Invoice No: {{$orderInfo->order_number}}
 

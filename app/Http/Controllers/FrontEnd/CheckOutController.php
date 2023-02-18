@@ -44,7 +44,7 @@ class CheckOutController extends Controller
                 abort(404);
             }
             if ($validator->fails()) {
-                return redirect()->route('address', app()->getLocale())
+                return redirect()->route('address')
                     ->withErrors($validator);
 
             }
@@ -68,7 +68,7 @@ class CheckOutController extends Controller
 
             ]);
         } else {
-            return redirect()->intended('customerLogin', app()->getLocale());
+            return redirect()->intended('customerLogin');
         }
     }
 
@@ -156,7 +156,7 @@ class CheckOutController extends Controller
                     'thanks' => 'Grazie!',
                     'subject' => 'Nuovo Ordine Ricevuto',
                     'actionText' => 'AREA RISERVATA',
-                    'actionURL' => url(env('APP_URL') . '/' . app()->getLocale()  . env('APP_ADMIN_URL') ),
+                    'actionURL' => url(env('APP_URL') . {{route('adminLogin')}} env('APP_ADMIN_URL') ),
                     'order_id' => $order->order_number,
                     'name' => $order->shipping_name
                 ];
@@ -170,7 +170,7 @@ class CheckOutController extends Controller
 
                 \request()->session()->forget('cart');
                 \request()->session()->forget('coupon');
-                return redirect()->route('orders.index', app()->getLocale())->with('success', 'Ordine effettuato con pagamento Bonifico. Riceverà a breve una e-mail.');
+                return redirect()->route('orders.index')->with('success', 'Ordine effettuato con pagamento Bonifico. Riceverà a breve una e-mail.');
 
             } catch (\Throwable $e) {
 
@@ -211,7 +211,7 @@ class CheckOutController extends Controller
                     'thanks' => 'Grazie!',
                     'subject' => 'Nuovo Ordine Ricevuto',
                     'actionText' => 'AREA RISERVATA',
-                    'actionURL' => url(env('APP_URL') . '/' . app()->getLocale() . env('APP_ADMIN_URL') ),
+                    'actionURL' => url(env('APP_URL') . env('APP_ADMIN_URL') ),
                     'order_id' => $order->order_number,
                     'name' => $order->shipping_name
                 ];
@@ -236,7 +236,7 @@ class CheckOutController extends Controller
                 ]);
                 \request()->session()->forget('cart');
                 \request()->session()->forget('coupon');
-                return redirect()->route('orders.index', app()->getLocale())->with('success', 'Pagamento effettuato con successo! Grazie per l\'acquisto. Riceverà a breve una e-mail.');
+                return redirect()->route('orders.index')->with('success', 'Pagamento effettuato con successo! Grazie per l\'acquisto. Riceverà a breve una e-mail.');
 
             } catch (\Throwable $e) {
                 return back()->withErrors('Errore! ' . $e->getMessage());

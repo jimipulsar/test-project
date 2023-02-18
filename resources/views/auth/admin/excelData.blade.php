@@ -8,7 +8,7 @@
 
             <div class="mt-5 md:mt-0 md:col-span-2">
                 <div class="flex flex-col">
-                    <form action="{{ route('file-import', app()->getLocale()) }}" method="POST"
+                    <form action="{{ route('file-import') }}" method="POST"
                           enctype="multipart/form-data">
                         @csrf
                         <div
@@ -48,7 +48,7 @@
                                     class="btn px-6 py-2.5 bg-green-600 hover:bg-green-700 text-white font-medium text-xs leading-tight uppercase rounded shadow-md  hover:shadow-lg focus:bg-green-900  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out items-center">
                                 Importa Dati
                             </button>
-                            <a href="{{ route('file-export', app()->getLocale()) }}"
+                            <a href="{{ route('file-export') }}"
                                class="ml-5 btn px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs leading-tight uppercase rounded shadow-md  hover:shadow-lg focus:bg-blue-900  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out items-center">
                                 Esporta Dati
                             </a>

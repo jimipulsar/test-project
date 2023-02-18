@@ -9,7 +9,7 @@
         <div class="tab-content">
             <div class="tab-pane active" id="sign-in">
 
-                <form method="POST" action="{{ route('login', app()->getLocale()) }}"
+                <form method="POST" action="{{ route('login') }}"
                       enctype="multipart/form-data">
                     @csrf
                     <div class="form-group">
@@ -36,7 +36,7 @@
                         @enderror
                     </div>
                     <div class="form-checkbox d-flex align-items-center justify-content-between">
-                        <a href="{{ route('password.request', app()->getLocale()) }}">Last your password?</a>
+                        <a href="{{ route('password.request') }}">Last your password?</a>
                     </div>
                     <button type="submit" class="btn btn-primary">Accedi</button>
                 </form>

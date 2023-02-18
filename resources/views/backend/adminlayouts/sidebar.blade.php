@@ -17,7 +17,7 @@
 
         {{-- <a class="flex items-center mt-4 py-2 px-6 bg-gray-700 bg-opacity-25 text-gray-100" href="/customer/dashboard"> --}}
         <a class="flex items-center mt-4 py-2 px-6 text-gray-300 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
-           href="{{route('dashboard',app()->getLocale() )}}">
+           href="{{route('dashboard' )}}">
 
             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                  stroke="currentColor">
@@ -30,7 +30,7 @@
             <span class="mx-3">Dashboard</span>
         </a>
         <a class="flex items-center mt-4 py-2 px-6 text-gray-300 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
-           href="{{route('profileAdmin', app()->getLocale())}}">
+           href="{{route('profileAdmin')}}">
             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                  stroke="currentColor">
                 <path
@@ -40,7 +40,7 @@
             <span class="mx-3">Il mio profilo</span>
         </a>
         <a class="flex items-center mt-4 py-2 px-6 text-gray-300 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
-           href="{{route('products.index', app()->getLocale())}}">
+           href="{{route('products.index')}}">
             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                  stroke="currentColor">
                 <path
@@ -50,7 +50,7 @@
             <span class="mx-3">Prodotti</span>
         </a>
         <a class="flex items-center mt-4 py-2 px-6 text-gray-300 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
-           href="{{route('brands.index', app()->getLocale())}}">
+           href="{{route('brands.index')}}">
             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                  stroke="currentColor">
                 <path d="M10,1.529c-4.679,0-8.471,3.792-8.471,8.471c0,4.68,3.792,8.471,8.471,8.471c4.68,0,8.471-3.791,8.471-8.471C18.471,5.321,14.68,1.529,10,1.529 M10,17.579c-4.18,0-7.579-3.399-7.579-7.579S5.82,2.421,10,2.421S17.579,5.82,17.579,10S14.18,17.579,10,17.579 M14.348,10c0,0.245-0.201,0.446-0.446,0.446h-5c-0.246,0-0.446-0.201-0.446-0.446s0.2-0.446,0.446-0.446h5C14.146,9.554,14.348,9.755,14.348,10 M14.348,12.675c0,0.245-0.201,0.446-0.446,0.446h-5c-0.246,0-0.446-0.201-0.446-0.446s0.2-0.445,0.446-0.445h5C14.146,12.229,14.348,12.43,14.348,12.675 M7.394,10c0,0.245-0.2,0.446-0.446,0.446H6.099c-0.245,0-0.446-0.201-0.446-0.446s0.201-0.446,0.446-0.446h0.849C7.194,9.554,7.394,9.755,7.394,10 M7.394,12.675c0,0.245-0.2,0.446-0.446,0.446H6.099c-0.245,0-0.446-0.201-0.446-0.446s0.201-0.445,0.446-0.445h0.849C7.194,12.229,7.394,12.43,7.394,12.675 M14.348,7.325c0,0.246-0.201,0.446-0.446,0.446h-5c-0.246,0-0.446-0.2-0.446-0.446c0-0.245,0.2-0.446,0.446-0.446h5C14.146,6.879,14.348,7.08,14.348,7.325 M7.394,7.325c0,0.246-0.2,0.446-0.446,0.446H6.099c-0.245,0-0.446-0.2-0.446-0.446c0-0.245,0.201-0.446,0.446-0.446h0.849C7.194,6.879,7.394,7.08,7.394,7.325"></path>
@@ -59,7 +59,7 @@
             <span class="mx-3">Marchi</span>
         </a>
         <a class="flex items-center mt-4 py-2 px-6 text-gray-300 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
-           href="{{route('categories.index', app()->getLocale())}}">
+           href="{{route('categories.index')}}">
             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                  stroke="currentColor">
                 <path
@@ -69,7 +69,7 @@
             <span class="mx-3">Categorie</span>
         </a>
         <a class="flex items-center mt-4 py-2 px-6 text-gray-300 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
-           href="{{route('adminOrders.index', app()->getLocale())}}">
+           href="{{route('adminOrders.index')}}">
             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                  stroke="currentColor">
                 <path
@@ -80,7 +80,7 @@
         </a>
 
         <a class="flex items-center mt-4 py-2 px-6 text-gray-300 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
-           href="{{route('customers.index', app()->getLocale())}}">
+           href="{{route('customers.index')}}">
             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                  stroke="currentColor">
                 <path
@@ -90,7 +90,7 @@
             <span class="mx-3">Utenti</span>
         </a>
         <a class="flex items-center mt-4 py-2 px-6 text-gray-300 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
-           href="{{route('subscribers.index', app()->getLocale())}}">
+           href="{{route('subscribers.index')}}">
             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                  stroke="currentColor">
                 <path
@@ -100,7 +100,7 @@
             <span class="mx-3">Newsletter</span>
         </a>
         <a class="flex items-center mt-4 py-2 px-6 text-gray-300 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
-           href="{{route('coupon.index', app()->getLocale())}}">
+           href="{{route('coupon.index')}}">
             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                  stroke="currentColor">
                 <path
@@ -110,7 +110,7 @@
             <span class="mx-3">Coupon</span>
         </a>
         <a class="flex items-center mt-4 py-2 px-6 text-gray-300 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
-           href="{{route('logActivity', app()->getLocale())}}">
+           href="{{route('logActivity')}}">
             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                  stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -120,7 +120,7 @@
         </a>
         @if(auth()->guard('admin')->user()->id == 1)
             <a class="flex items-center mt-4 py-2 px-6 text-gray-300 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
-               href="{{route('importData', app()->getLocale())}}">
+               href="{{route('importData')}}">
                 <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                      stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -130,7 +130,7 @@
                 <span class="mx-3">Import/Export Excel</span>
             </a>
             <a class="flex items-center mt-4 py-2 px-6 text-gray-300 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
-               href="{{route('AdminLogActivity', app()->getLocale())}}">
+               href="{{route('AdminLogActivity')}}">
                 <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                      stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -140,12 +140,12 @@
             </a>
         @endif
         <a class="flex items-center mt-4 py-2 px-6 text-gray-300 hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100"
-           href="{{ route('logout', ['lang' => app()->getLocale()]) }}"
+           href="{{ route('logout')}}"
            onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
             {{ __('Esci') }}
         </a>
-        <form id="logout-form" action="{{ route('adminLogout', app()->getLocale()) }}" method="POST"
+        <form id="logout-form" action="{{ route('adminLogout') }}" method="POST"
               class="d-none">
             @csrf
         </form>

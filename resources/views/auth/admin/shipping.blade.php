@@ -71,7 +71,7 @@
 
     {{--                                <p class="text-right">Inserisci la destinazione per avere un preventivo delle spese.</p>--}}
     {{--                                <form data-fsl method="post"--}}
-    {{--                                      action="{{route('calculate.shipping.view',['lang' => app()->getLocale(), $orderInfo->id])}}"--}}
+    {{--                                      action="{{route('calculate.shipping.view',[ $orderInfo->id])}}"--}}
     {{--                                      class="tax-select-wrapper">--}}
     {{--                                    @csrf--}}
 

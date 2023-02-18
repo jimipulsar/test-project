@@ -28,7 +28,7 @@ class LogActivityController extends Controller
             return view('auth.admin.activity', ['logs' => $logs]);
 
         } else {
-            return redirect()->route('index', app()->getLocale());
+            return redirect()->route('index');
         }
 
 
@@ -46,7 +46,7 @@ class LogActivityController extends Controller
             return view('auth.admin.admin-activity', ['logs' => $logs]);
 
         } else {
-            return redirect()->route('index', app()->getLocale());
+            return redirect()->route('index');
         }
 
 

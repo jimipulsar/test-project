@@ -8,7 +8,7 @@
     {{--    </div>--}}
     <div class="mt-10">
         <div class=" text-left">
-            <a href="{{route('brands.create', app()->getLocale())}}"
+            <a href="{{route('brands.create')}}"
                class="btn px-6 py-2.5 bg-green-600 hover:bg-green-700 text-white font-medium text-xs leading-tight uppercase rounded shadow-md  hover:shadow-lg focus:bg-green-900  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out items-center">
                 Nuovo marchio
             </a>
@@ -18,7 +18,7 @@
     <div class="flex justify-start mt-8">
         <div class="mb-3 xl:w-5/12">
             <form id="mysearch"
-                  action="{{route('searchProduct',app()->getLocale())}}"
+                  action="{{route('searchProduct')}}"
                   method="POST" role="search">
                 {{ csrf_field() }}
                 <div class="input-group flex items-stretch relative w-full mb-4 inline-block">
@@ -37,7 +37,7 @@
 
                     <a class="btn flex inline-block ml-5 px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs leading-tight uppercase rounded shadow-md  hover:shadow-lg focus:bg-blue-900  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex items-center"
                        type="button" id="button-addon2"
-                       href="{{route('brands.index', app()->getLocale())}}">
+                       href="{{route('brands.index')}}">
                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                              stroke="currentColor">
                             <path
@@ -100,14 +100,14 @@
                             </td>
                             <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-end justify-content-end right">
                                 <a class="px-4 py-2.5 ml-2 bg-green-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg transition duration-150 ease-in-out"
-                                   href="{{ route('brands.duplicate',[ 'lang'=>app()->getLocale(),$brand->id]) }}"
+                                   href="{{ route('brands.duplicate',[ $brand->id]) }}"
                                    data-toggle="tooltip" data-placement="bottom" title="Duplica" id="btLeft"><i
                                             class="far fa-copy"></i></a>
 
                                 <a data-toggle="tooltip" data-placement="bottom"
                                    class="px-4 py-2.5 ml-2 bg-yellow-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-yellow-700 hover:shadow-lg focus:bg-yellow-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-yellow-800 active:shadow-lg transition duration-150 ease-in-out"
                                    title="Modifica"
-                                   href="{{ route('brands.edit',['lang' => app()->getLocale(), $brand->id]) }}"
+                                   href="{{ route('brands.edit',[ $brand->id]) }}"
                                    id="btLeft"><i
                                             class="fas fa-edit" title="Modifica"></i></a>
                                 <div
@@ -177,7 +177,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="bg-gray-50 px-4 pb-7 sm:px-6 sm:flex sm:flex-row-reverse">
-                                                    <form action="{{ route('brands.destroy' ,['lang' => app()->getLocale(), $brand->id]) }}"
+                                                    <form action="{{ route('brands.destroy' ,[ $brand->id]) }}"
                                                           method="POST" enctype="multipart/form-data">
                                                         @csrf
                                                         @method('DELETE')

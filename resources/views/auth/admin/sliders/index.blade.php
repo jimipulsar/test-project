@@ -63,7 +63,7 @@
                                 <a data-toggle="tooltip" data-placement="bottom"
                                    class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-yellow-600 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                                    title="Modifica"
-                                   href="{{ route('sliders.edit',['lang' => app()->getLocale(), $slider->id]) }}"
+                                   href="{{ route('sliders.edit',[ $slider->id]) }}"
                                    id="btLeft"><i
                                         class="fas fa-edit" title="Modifica"></i></a>
 
@@ -136,7 +136,7 @@
                                 {{--                                                </div>--}}
                                 {{--                                                <div class="bg-gray-50 px-4 pb-7 sm:px-6 sm:flex sm:flex-row-reverse">--}}
                                 {{--                                                    <form--}}
-                                {{--                                                        action="{{ route('sliders.destroy' ,['lang' => app()->getLocale(), $slider->id]) }}"--}}
+                                {{--                                                        action="{{ route('sliders.destroy' ,[ $slider->id]) }}"--}}
                                 {{--                                                        method="POST" enctype="multipart/form-data">--}}
                                 {{--                                                        @csrf--}}
                                 {{--                                                        @method('DELETE')--}}

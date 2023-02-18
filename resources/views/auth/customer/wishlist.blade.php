@@ -8,7 +8,7 @@
     <div class="page-header breadcrumb-wrap">
         <div class="container">
             <div class="breadcrumb">
-                <a href="{{route('home', app()->getLocale())}}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                <a href="{{route('home')}}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
                 <span></span> I miei ordini
             </div>
         </div>
@@ -60,7 +60,7 @@
                                                         </td>
 
                                                         <td class="image product-thumbnail pt-40">
-                                                            <a href="{{ route('shop.show',[ 'lang'=>app()->getLocale(), $details->product->id,$details->product->slug]) }}">
+                                                            <a href="{{ route('shop.show',[  $details->product->id,$details->product->slug]) }}">
                                                                 <img
                                                                     src="{{'/storage/images/' . $details->product->img_01 }}"
                                                                     alt="product" id="img-cart">
@@ -68,7 +68,7 @@
                                                         </td>
                                                         <td class="product-des product-name">
                                                             <h6><a class="product-name mb-10"
-                                                                   href="{{ route('shop.show',[ 'lang'=>app()->getLocale(), $details->product->id,$details->product->slug]) }}">{{$details->product->item_name}}</a>
+                                                                   href="{{ route('shop.show',[  $details->product->id,$details->product->slug]) }}">{{$details->product->item_name}}</a>
                                                             </h6>
                                                             <div class="product-rate-cover">
                                                                 <div class="product-rate d-inline-block">
@@ -94,14 +94,14 @@
                                                         </td>
                                                         @if($details->product->shippable == 0 )
                                                             <div class="add-cart">
-                                                                <a href="{{route('addcart', ['lang'=>app()->getLocale(), $details->product->id])}}"
+                                                                <a href="{{route('addcart', [ $details->product->id])}}"
                                                                    class="add"
                                                                    title="Richiedi info"><i
                                                                         class="fi-rs-envelope mr-5"></i>Richiedi info</a>
                                                             </div>
                                                             <td class="text-right">
                                                                 <div class="d-lg-flex">
-                                                                    <a href="{{route('addcart', ['lang'=>app()->getLocale(), $details->product->id])}}"
+                                                                    <a href="{{route('addcart', [ $details->product->id])}}"
                                                                        class="btn btn-sm">Aggiungi
                                                                         al carrello
                                                                     </a>
@@ -110,7 +110,7 @@
                                                             <!-- Modal -->
                                                         @else
                                                             <div class="add-cart">
-                                                                <a href="{{route('addcart', ['lang'=>app()->getLocale(), $p->id, $p->slug])}}"
+                                                                <a href="{{route('addcart', [ $p->id, $p->slug])}}"
                                                                    class="add"
                                                                    title="Aggiungi al carrello"><i
                                                                         class="fi-rs-shopping-cart mr-5"></i>Acquista</a>
@@ -119,7 +119,7 @@
                                                         @if($details->product->stock_qty > 0)
                                                             <td class="text-right">
                                                                 <div class="d-lg-flex">
-                                                                    <a href="{{route('addcart', ['lang'=>app()->getLocale(), $details->product->id])}}"
+                                                                    <a href="{{route('addcart', [ $details->product->id])}}"
                                                                        class="btn btn-sm">Aggiungi
                                                                         al carrello
                                                                     </a>
@@ -136,7 +136,7 @@
                                                             </td>
                                                         @endif
                                                         <td class="action text-center" data-title="Remove">
-                                                            <a href="{{route('removewish', ['lang'=>app()->getLocale(),$details->product->id])}}" class="text-body"><i class="fi-rs-trash"></i></a>
+                                                            <a href="{{route('removewish', [$details->product->id])}}" class="text-body"><i class="fi-rs-trash"></i></a>
                                                         </td>
 
                                                     </tr>

@@ -9,7 +9,7 @@
         <div class="container">
             <div class="breadcrumb">
                 <a href="{{url('/')}}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                <span></span> <a href="{{route('shop.index', app()->getLocale())}}">Shop</a>
+                <span></span> <a href="{{route('shop.index')}}">Shop</a>
                 <span></span> Carrello
             </div>
         </div>
@@ -57,7 +57,7 @@
                                     @endif
                                     <td class="product-des product-name">
                                         <h6 class="mb-5"><a class="product-name mb-10 text-heading"
-                                                            href="{{ route('shop.show',['lang'=>app()->getLocale(),$id,$details['slug']]) }}">{{$details['name'] }}</a>
+                                                            href="{{ route('shop.show',[$id,$details['slug']]) }}">{{$details['name'] }}</a>
                                         </h6>
                                     </td>
                                     <td class="price" data-title="Prezzo">
@@ -68,12 +68,12 @@
                                             <div class="detail-qty border radius">
                                                 @if(count($details) > 0)
                                                     <a class="qty-down"
-                                                       href="{{route('removecart', ['lang'=>app()->getLocale(),$id])}}"><i
+                                                       href="{{route('removecart', [$id])}}"><i
                                                             class="fi-rs-angle-small-down"></i>
                                                     </a>
                                                     {{$details['quantity']}}
                                                     <a class="qty-up"
-                                                       href="{{route('addQuantity', ['lang'=>app()->getLocale(),$id])}}"><i
+                                                       href="{{route('addQuantity', [$id])}}"><i
                                                             class="fi-rs-angle-small-up"></i>
                                                     </a>
                                                 @endif
@@ -89,7 +89,7 @@
                                         </h4>
                                     </td>
                                     <td class="action text-center" data-title="Rimuovi"><a
-                                            href="{{route('remove', ['lang'=>app()->getLocale(),$id])}}"
+                                            href="{{route('remove', [$id])}}"
                                             class="text-body"><i
                                                 class="fi-rs-trash"></i></a></td>
                                 </tr>
@@ -100,7 +100,7 @@
                 </div>
                 <div class="divider-2 mb-30"></div>
                 <div class="cart-action d-flex justify-content-between">
-                    <a href="{{route('shop.index', app()->getLocale())}}" class="btn "><i
+                    <a href="{{route('shop.index')}}" class="btn "><i
                             class="fi-rs-arrow-left mr-10"></i>Continua con gli acquisti</a>
                     {{--                    <a class="btn  mr-10 mb-sm-15"><i class="fi-rs-refresh mr-10"></i>Update Cart</a>--}}
                 </div>
@@ -109,7 +109,7 @@
                         <div class="p-40">
                             <h4 class="mb-10">Applica Coupon</h4>
                             <p class="mb-30"><span class="font-lg text-muted">Hai un codice promozionale?</span></p>
-                            <form class="coupon" action="{{ route('cartCoupon.store', app()->getLocale()) }}"
+                            <form class="coupon" action="{{ route('cartCoupon.store') }}"
                                   method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="d-flex justify-content-between">
@@ -127,7 +127,7 @@
 
                             <!-- Apply coupon Form -->
 
-                                <form action="{{ route('cartCoupon.destroy', app()->getLocale()) }}"
+                                <form action="{{ route('cartCoupon.destroy') }}"
                                       method="POST"
                                       enctype="multipart/form-data" style="margin-top:20px">
                                     @csrf
@@ -219,7 +219,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <a href="{{route('checkout', app()->getLocale())}}"
+                        <a href="{{route('checkout')}}"
                            class="btn mb-20 w-100">
                             {{__('home.proceed')}}<i class="fi-rs-sign-out ml-15"></i>
                         </a>
@@ -236,9 +236,9 @@
     {{--                <h1 style="font-size:8px; color:#fff; line-height:8px;">{{__('cart.seo.title')}} | Livewire</h1>--}}
 
     {{--                <ul class="breadcrumb shop-breadcrumb bb-no">--}}
-    {{--                    <li class="active"><a href="{{route('cart', app()->getLocale())}}">Carrello</a></li>--}}
+    {{--                    <li class="active"><a href="{{route('cart')}}">Carrello</a></li>--}}
     {{--                    @if(session('cart'))--}}
-    {{--                        <li><a href="{{route('checkout', app()->getLocale())}}">Checkout</a></li>--}}
+    {{--                        <li><a href="{{route('checkout')}}">Checkout</a></li>--}}
     {{--                        <li><a>Ordine Completato</a></li>--}}
     {{--                    @endif--}}
     {{--                </ul>--}}
@@ -269,7 +269,7 @@
 
     {{--                                        <td class="product-thumbnail">--}}
     {{--                                            <div class="p-relative">--}}
-    {{--                                                <a href="{{ route('shop.show',['lang'=>app()->getLocale(),$id,$details['slug']]) }}">--}}
+    {{--                                                <a href="{{ route('shop.show',[$id,$details['slug']]) }}">--}}
     {{--                                                    <figure>--}}
     {{--                                                        <img--}}
     {{--                                                                src="{{'/storage/images/' . $details['img_01'] }}"--}}
@@ -277,13 +277,13 @@
     {{--                                                                id="img-cart">--}}
     {{--                                                    </figure>--}}
     {{--                                                </a>--}}
-    {{--                                                <a href="{{route('remove', ['lang'=>app()->getLocale(),$id])}}"--}}
+    {{--                                                <a href="{{route('remove', [$id])}}"--}}
     {{--                                                   class="btn btn-close"><i--}}
     {{--                                                            class="fas fa-times"></i></a>--}}
     {{--                                            </div>--}}
     {{--                                        </td>--}}
     {{--                                        <td class="product-name">--}}
-    {{--                                            <a href="{{ route('shop.show',['lang'=>app()->getLocale(),$id,$details['slug']]) }}">--}}
+    {{--                                            <a href="{{ route('shop.show',[$id,$details['slug']]) }}">--}}
     {{--                                                {{$details['name'] }}--}}
     {{--                                            </a>--}}
     {{--                                        </td>--}}
@@ -293,11 +293,11 @@
     {{--                                            <div class="input-group form-control">--}}
     {{--                                                @if(count($details) > 0)--}}
     {{--                                                    <a class="quantity-minus w-icon-minus"--}}
-    {{--                                                       href="{{route('removecart', ['lang'=>app()->getLocale(),$id])}}">--}}
+    {{--                                                       href="{{route('removecart', [$id])}}">--}}
     {{--                                                    </a>--}}
     {{--                                                    {{$details['quantity']}}--}}
     {{--                                                    <a class="quantity-plus w-icon-plus"--}}
-    {{--                                                       href="{{route('addQuantity', ['lang'=>app()->getLocale(),$id])}}">--}}
+    {{--                                                       href="{{route('addQuantity', [$id])}}">--}}
     {{--                                                    </a>--}}
     {{--                                                @endif--}}
 
@@ -314,11 +314,11 @@
     {{--                            </table>--}}
 
     {{--                            <div class="cart-action mb-6">--}}
-    {{--                                <a href="{{route('shop.index', app()->getLocale())}}"--}}
+    {{--                                <a href="{{route('shop.index')}}"--}}
     {{--                                   class="btn btn-dark btn-rounded btn-icon-left btn-shopping mr-auto"><i--}}
     {{--                                            class="w-icon-long-arrow-left"></i>Continua lo Shopping</a>--}}
     {{--                            </div>--}}
-    {{--                            <form class="coupon" action="{{ route('cartCoupon.store', app()->getLocale()) }}"--}}
+    {{--                            <form class="coupon" action="{{ route('cartCoupon.store') }}"--}}
     {{--                                  method="POST" enctype="multipart/form-data">--}}
     {{--                                @csrf--}}
     {{--                                <h5 class="title coupon-title font-weight-bold text-uppercase">Coupon Discount</h5>--}}
@@ -334,7 +334,7 @@
 
     {{--                            <!-- Apply coupon Form -->--}}
 
-    {{--                                <form action="{{ route('cartCoupon.destroy', app()->getLocale()) }}"--}}
+    {{--                                <form action="{{ route('cartCoupon.destroy') }}"--}}
     {{--                                      method="POST"--}}
     {{--                                      enctype="multipart/form-data">--}}
     {{--                                    @csrf--}}
@@ -405,7 +405,7 @@
     {{--                                            <span class="amount ls-50">€ {{ priceView($newTotal)}}</span>--}}
     {{--                                        </div>--}}
     {{--                                        @if(session('cart'))--}}
-    {{--                                            <a href="{{route('checkout', app()->getLocale())}}"--}}
+    {{--                                            <a href="{{route('checkout')}}"--}}
     {{--                                               class="btn btn-block btn-dark btn-icon-right btn-rounded  btn-checkout">--}}
     {{--                                                {{__('home.proceed')}}<i class="w-icon-long-arrow-right"></i>--}}
     {{--                                            </a>--}}

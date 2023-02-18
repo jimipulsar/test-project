@@ -55,10 +55,10 @@ class TagController extends Controller
         $tag->slug = $slug;
 
         if ($tag->save()) {
-            return redirect()->route('tags.index', app()->getLocale())->with(['success' => 'Attributo aggiunta con successo.']);
+            return redirect()->route('tags.index')->with(['success' => 'Attributo aggiunta con successo.']);
         }
 
-        return redirect()->route('tags.index', app()->getLocale())->with(['errors' => 'Impossibile aggiungere una categoria.']);
+        return redirect()->route('tags.index')->with(['errors' => 'Impossibile aggiungere una categoria.']);
     }
 
     /**
@@ -70,7 +70,7 @@ class TagController extends Controller
     public function show( $id)
     {
         $tag = Tag::where('id', $id)->first();
-        return view('auth.admin.tags.show', app()->getLocale(), ['attribute' => $tag]);
+        return view('auth.admin.tags.show', ['attribute' => $tag]);
 
     }
 
@@ -110,7 +110,7 @@ class TagController extends Controller
         ]);
         $tag->save();
 
-        return redirect()->route('tags.index', app()->getLocale())->with(array('category' => $tag))->with('success', 'Attributo modificata con successo!');
+        return redirect()->route('tags.index')->with(array('category' => $tag))->with('success', 'Attributo modificata con successo!');
     }
 
     /**

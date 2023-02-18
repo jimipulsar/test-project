@@ -7,7 +7,7 @@
     <div class="page-header breadcrumb-wrap">
         <div class="container">
             <div class="breadcrumb">
-                <a href="{{route('home', app()->getLocale())}}" rel="nofollow"><i
+                <a href="{{route('home')}}" rel="nofollow"><i
                         class="fi-rs-home mr-5"></i>Home</a>
                 <span></span> My Account
             </div>
@@ -23,9 +23,9 @@
                             <div class="heading_s1">
                                 <h1 class="mb-5">Area riservata</h1>
                                 <p class="mb-30">Non hai ancora un account registrato? <a
-                                        href="{{route('register',app()->getLocale())}}">Registrati ora</a></p>
+                                        href="{{route('register')}}">Registrati ora</a></p>
                             </div>
-                            <form method="POST" action="{{ route('login', app()->getLocale()) }}"
+                            <form method="POST" action="{{ route('login') }}"
                                   enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <div class="form-group">
@@ -66,7 +66,7 @@
                                         </div>
                                     </div>
                                     <a class="text-muted"
-                                       href="{{ route('password.request', app()->getLocale()) }}">Password
+                                       href="{{ route('password.request') }}">Password
                                         dimenticata?</a>
                                 </div>
                                 <div class="form-group">

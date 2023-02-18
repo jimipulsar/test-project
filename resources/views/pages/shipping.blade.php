@@ -15,7 +15,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-3 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
                             <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a
-                                    href="{{route('index', app()->getLocale())}}">Home</a></li>
+                                    href="{{route('adminLogin')}}">Home</a></li>
                             <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">
                                 Spedizione: {{$zip->city.','.$zip->state}}
                             </li>
@@ -67,7 +67,7 @@
 
                 </div>
                 <div class="py-2 mb-10 w-full d-flex justify-content-center">
-                    <a href="{{route('cart',app()->getLocale())}}" class="btn btn-primary-dark-w"> Torna indietro</a>
+                    <a href="{{route('cart')}}" class="btn btn-primary-dark-w"> Torna indietro</a>
                 </div>
             </div>
 

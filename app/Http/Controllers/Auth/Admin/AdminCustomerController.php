@@ -35,7 +35,7 @@ class AdminCustomerController extends Controller
             }
             return view('auth.admin.customers.index', ['users' => $users]);
         } else {
-            return redirect()->route('index', app()->getLocale());
+            return redirect()->route('index');
         }
 
     }

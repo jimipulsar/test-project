@@ -38,13 +38,13 @@
                                 <div class="post-thumb" style="background-image: url('{{'/uploads/news/' . $img->url}}')">
                                     <div class="entry-meta">
                                         <a class="entry-meta meta-2"
-                                           href="{{route('single',['lang' => app()->getLocale(), 'single' => Str::slug($img->link)])}}"><i
+                                           href="{{route('single',[ 'single' => Str::slug($img->link)])}}"><i
                                                 class="fi-rs-badge"></i></a>
                                     </div>
                                 </div>
                                 <div class="entry-content-2 pl-50">
                                     <h3 class="post-title mb-20">
-                                        <a href="{{route('single',['lang' => app()->getLocale(), 'single' => Str::slug($img->link)])}}">
+                                        <a href="{{route('single',[ 'single' => Str::slug($img->link)])}}">
                                             {{ucwords($img->path->title)}}</a>
                                     </h3>
                                     <p class="post-exerpt mb-40">{!! substr($img->path->description, 0, 300)!!}{!! strlen($img->path->description) > 300 ? '...' : ""!!}</p>
@@ -52,7 +52,7 @@
                                         <div>
                                             <span class="post-on">{!! $img->path->date !!}</span>
                                         </div>
-                                        <a href="{{route('single',['lang' => app()->getLocale(), 'single' => Str::slug($img->link)])}}"
+                                        <a href="{{route('single',[ 'single' => Str::slug($img->link)])}}"
                                            class="text-brand font-heading font-weight-bold">Leggi di più <i
                                                 class="fi-rs-arrow-right"></i></a>
                                     </div>
@@ -77,7 +77,7 @@
                             <ul>
                                 @foreach (getCategories() as $cat)
                                     <li>
-                                        <a href="{{ route('categoryPage',['lang'=>app()->getLocale(),$cat->id,  $cat->category_slug]) }}"><img
+                                        <a href="{{ route('categoryPage',[$cat->id,  $cat->category_slug]) }}"><img
                                                     src="/assets/imgs/theme/icons/category-6.svg"
                                                     alt=""/>{{ucFirst($cat->name)}}</a>
                                     </li>

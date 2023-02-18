@@ -14,7 +14,7 @@
                         </div>
                         <div class="breadcumbs pb-15">
                             <ul>
-                                <li><a href="{{route('index', app()->getLocale())}}">Home</a></li>
+                                <li><a href="{{route('adminLogin')}}">Home</a></li>
                                 <li>{{$product->item_name}}</li>
                             </ul>
                         </div>

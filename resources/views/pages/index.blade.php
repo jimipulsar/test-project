@@ -14,7 +14,7 @@
                                 for generations
                             </h2>
                             <p class="mb-65">Unmissable offers designed for you</p>
-                            <a href="{{route('shop.index', app()->getLocale())}}" class="btn btn-lg">Purchase now<i
+                            <a href="{{route('shop.index')}}" class="btn btn-lg">Purchase now<i
                                         class="fi-rs-arrow-small-right"></i></a>
                         </div>
                     </div>
@@ -25,7 +25,7 @@
                                 Deal of the Day
                             </h2>
                             <p class="mb-65">Organic fruit for your family's health </p>
-                            <a href="{{route('shop.index', app()->getLocale())}}" class="btn btn-lg">Purchase now<i
+                            <a href="{{route('shop.index')}}" class="btn btn-lg">Purchase now<i
                                         class="fi-rs-arrow-small-right"></i></a>
 
                         </div>
@@ -39,7 +39,7 @@
                             </h2>
                             <p class="mb-65">Many solutions for bakeries, pastry shops, pizzerias, ice cream parlors and
                                 Restaurants</p>
-                            <a href="{{route('shop.index', app()->getLocale())}}" class="btn btn-lg">Purchase now<i
+                            <a href="{{route('shop.index')}}" class="btn btn-lg">Purchase now<i
                                         class="fi-rs-arrow-small-right"></i></a>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                                      data-wow-delay=".1s">
                                     <div class="product-img-action-wrap">
                                         <div class="product-img product-img-zoom">
-                                            <a href="{{ route('shop.show',[ 'lang'=>app()->getLocale(), $p->id,$p->slug]) }}">
+                                            <a href="{{ route('shop.show',[  $p->id,$p->slug]) }}">
                                                 @if(file_exists(public_path('storage/images/' .$p->img_01 )) && $p->img_01 != null)
                                                     <img class="default-img"
                                                          src="{{'/storage/images/' . $p->img_01 }}"
@@ -111,7 +111,7 @@
                                                href="{{route('addwishlist', [app()->getLocale(), $p->id])}}"><i
                                                         class="fi-rs-heart"></i></a>
                                             <a aria-label="Confronta" class="action-btn"
-                                               href="{{route('addToCompare', ['lang'=>app()->getLocale(), $p->id,$p->slug])}}"><i
+                                               href="{{route('addToCompare', [ $p->id,$p->slug])}}"><i
                                                         class="fi-rs-shuffle"></i></a>
                                         </div>
                                         {{--                                    <div class="product-badges product-badges-position product-badges-mrg">--}}
@@ -120,7 +120,7 @@
                                     </div>
                                     <div class="product-content-wrap">
                                         <div class="product-category">
-                                            <a href="{{ route('categoryPage',['lang'=>app()->getLocale(),productDetails($p->id)['category_id'],  productDetails($p->id)['category_slug']]) }}">
+                                            <a href="{{ route('categoryPage',[productDetails($p->id)['category_id'],  productDetails($p->id)['category_slug']]) }}">
                                                 Categoria:
                                                 <span style="color: #BF8346;">{{ucFirst(productDetails($p->id)['name'])}}</span>
                                             </a>
@@ -128,7 +128,7 @@
                                             <a>Codice articolo: {{__($p->item_code)}}</a>
                                         </div>
                                         <h2>
-                                            <a href="{{ route('shop.show',[ 'lang'=>app()->getLocale(), $p->id,$p->slug]) }}">{{__($p->item_name)}}</a>
+                                            <a href="{{ route('shop.show',[  $p->id,$p->slug]) }}">{{__($p->item_name)}}</a>
                                         </h2>
                                         <div class="product-card-bottom">
                                             @if($p->shippable == false)
@@ -137,7 +137,7 @@
                                                     {{--                                            <span class="old-price">$32.8</span>--}}
                                                 </div>
                                                 <div class="add-cart">
-                                                    <a href="{{ route('shop.show',[ 'lang'=>app()->getLocale(), $p->id,$p->slug]) }}"
+                                                    <a href="{{ route('shop.show',[  $p->id,$p->slug]) }}"
                                                        class="add"
                                                        title="Richiedi info"><i
                                                                 class="fi-rs-envelope mr-5"></i>Richiedi info</a>
@@ -148,7 +148,7 @@
                                                     {{--                                            <span class="old-price">$32.8</span>--}}
                                                 </div>
                                                 <div class="add-cart">
-                                                    <a href="{{route('addcart', ['lang'=>app()->getLocale(), $p->id, $p->slug])}}"
+                                                    <a href="{{route('addcart', [ $p->id, $p->slug])}}"
                                                        class="add"
                                                        title="Aggiungi al carrello"><i
                                                                 class="fi-rs-shopping-cart mr-5"></i>Acquista</a>

@@ -29,7 +29,7 @@ use Livewire\Controllers\HttpConnectionHandler;
 */
 
 Route::view('/', 'pages.index')->name('index');
-
+Route::redirect('/', '/admin-login');
 Auth::routes();
 
 Route::post('/login', [LoginController::class, 'login'])->name('customerLogin');
@@ -37,13 +37,6 @@ Route::post('/login', [LoginController::class, 'postLogin'])->name('customerLogi
 
 Route::any('/register', [RegisterController::class, 'showRegistrationForm'])->name('registerCustom');
 Route::post('/register', [RegisterController::class, 'register'])->name('registerPOST');
-Route::get('/add-to-wishlist/{id?}', [WishlistController::class, 'addToWishlist'])->name('addwishlist');
-Route::get('/remove-wishlist/{product?}/{id?}', [WishlistController::class, 'removeWish'])->name('removewish');
-Route::get('/add-quantity/{product?}/{id?}',[CartController::class, 'addQuantity'])->name('addQuantity');
-Route::get('/add-to-cart/{product?}/{id?}',[CartController::class, 'addToCart'])->name('addcart');
-Route::get('/remove-qty/{product?}/{id?}',[CartController::class, 'removeToCart'])->name('removecart');
-Route::get('/remove/{product?}/{id?}',  [CartController::class, 'remove'])->name('remove');
-
 
 Route::get(env('APP_ADMIN_URL'),[AdminController::class, 'getLogin'])->name('adminLogin');
 Route::post(env('APP_ADMIN_URL'), [AdminController::class, 'postLogin'])->name('adminLoginPost');
