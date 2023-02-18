@@ -74,10 +74,12 @@ class AdminCustomerController extends Controller
     public function show($id)
     {
 
-        $user = Customer::findOrFail($id);
+        $customer = Customer::findOrFail($id);
 
 
-        return view('auth.admin.customers.show', compact('user'));
+        return view('auth.admin.customers.show', [
+            'customer' => $customer
+        ]);
 
     }
 

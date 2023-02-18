@@ -2,73 +2,48 @@
 
 @section('body')
 
-<div class="row">
+    <h3 class="text-gray-700 text-3xl font-medium mb-10">Customer</h3>
+    <table>
+        <thead class="bg-gray-50">
+        <tr>
+            <th class="px-6 py-2 text-xs text-gray-500">
+                ID
+            </th>
+            <th class="px-6 py-2 text-xs text-gray-500">
+                Full Name
+            </th>
+            <th class="px-6 py-2 text-xs text-gray-500">
+                Email
+            </th>
+            <th class="px-6 py-2 text-xs text-gray-500">
+                Created at
+            </th>
+        </tr>
+        </thead>
+        <tbody class="bg-white">
+        <tr class="whitespace-nowrap">
+            <td class="px-6 py-4 text-sm text-gray-500">
+                {{$customer->id}}
+            </td>
+            <td class="px-6 py-4">
+                <div class="text-sm text-gray-900">
+                    {{$customer->billing_name}}  {{$customer->billing_surname}}
+                </div>
+            </td>
+            <td class="px-6 py-4">
+                <div class="text-sm text-gray-500">{{$customer->email}}</div>
+            </td>
+            <td class="px-6 py-4 text-sm text-gray-500">
+                {{$customer->created_at}}
+            </td>
+        </tr>
 
-    <div class="col-lg-12 margin-tb">
-
-        <div class="pull-left">
-
-            <h2> Modifica Profilo</h2>
-
-        </div>
-
-        <div class="pull-right">
-
-            <a class="btn btn-primary" href="{{ route('customers.index') }}"> Indietro</a>
-
-        </div>
-
+        </tbody>
+    </table>
+    <div class="text-left pb-10 mt-8">
+        <a href="{{url()->previous()}}"
+           class="btn px-6 py-2.5 bg-green-600 hover:bg-green-700 text-white font-medium text-xs leading-tight uppercase rounded shadow-md  hover:shadow-lg focus:bg-green-900  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out items-center">
+            Torna indietro
+        </a>
     </div>
-
-</div>
-
-
-<div class="row">
-
-    <div class="col-xs-12 col-sm-12 col-md-12">
-
-        <div class="form-group">
-
-            <strong>Nome:</strong>
-
-            {{ $user->name }}
-
-        </div>
-
-    </div>
-
-    <div class="col-xs-12 col-sm-12 col-md-12">
-
-        <div class="form-group">
-
-            <strong>Username:</strong>
-
-            {{ $user->username }}
-
-        </div>
-
-    </div>
-
-    <div class="col-xs-12 col-sm-12 col-md-12">
-
-        <div class="form-group">
-
-            <strong>Roles:</strong>
-
-            @if(!empty($user->getRoleNames()))
-
-                @foreach($user->getRoleNames() as $v)
-
-                    <label class="badge badge-success">{{ $v }}</label>
-
-                @endforeach
-
-            @endif
-
-        </div>
-
-    </div>
-
-</div>
-
 @endsection
