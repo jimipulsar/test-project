@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Customer;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,15 +16,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        Customer::factory(30)->create();
         $this->call(UsersTableSeeder::class);
         $this->call(CustomerTableSeeder::class);
 
 
 //        Product::factory()->count(100)->create();
-        $this->call(CategoriesTableSeeder::class);
-        $this->call(BrandsTableSeeder::class);
-        $this->call(ProductsTableSeeder::class);
+//        $this->call(CategoriesTableSeeder::class);
+//        $this->call(BrandsTableSeeder::class);
+//        $this->call(ProductsTableSeeder::class);
 
 //        Tag::factory()->count(50)->create();
 
@@ -35,7 +37,7 @@ class DatabaseSeeder extends Seeder
 //                rand(1, (rand(41,50))),
 //            ]);
 //        };
-        $this->call(AttributesTableSeeder::class);
+//        $this->call(AttributesTableSeeder::class);
         $this->call(SliderTableSeeder::class);
         $this->call(CouponTableSeeder::class);
     }

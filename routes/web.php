@@ -46,7 +46,6 @@ Route::post('send/product-request', [SendMailController::class, 'sendProduct'])-
 Route::post('send/contact/form', [SendMailController::class, 'sendmail'])->name('sent');
 Route::get('send/status/{status}', [SendMailController::class, 'sendSuccess'])->name('success');
 
-
 Route::group(['middleware' => 'customer'], function () {
     Route::get('/home', [LoginController::class, 'showLoginForm'])->name('home');
 
