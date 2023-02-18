@@ -36,8 +36,8 @@ return new class extends Migration
             $table->string('quantity')->default('1')->nullable();
             $table->text('slug')->nullable();
             $table->boolean('shippable')->default(false);
-            $table->biginteger('user_id')->default(1)->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->biginteger('customer_id')->default(1)->unsigned();
+            $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
             $table->timestamps();
         });
     }

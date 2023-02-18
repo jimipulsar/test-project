@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\AttributeProduct;
 use App\Models\Brand;
 use App\Models\Category;
+use App\Models\Customer;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
@@ -22,18 +23,16 @@ class ProductsTableSeeder extends Seeder
     public function run(Faker $faker)
     {
         $faker = Faker::create();
-        $this->users = User::all();
-        for ($i = 1; $i <= 100; $i++) {
+        $this->customers = Customer::all();
+        for ($i = 1; $i <= 50; $i++) {
             $title = $faker->sentence(1);
             $slug = Str::slug($title);
-            $categories = Category::whereHas('childCategories')->pluck('id');
-            $brands = Brand::with('products')->pluck('id');
 
-            $product = Product::create([
+             Product::create([
 
                 'item_name' => $title,
                 'slug' => $slug,
-                'user_id' => $this->users[rand(0, count($this->users) - 1)]->id,
+                'customer_id' => $this->customers[rand(0, count($this->customers) - 1)]->id,
                 'price' => mt_rand(99, 4999) / 100,
                 'item_code' => $faker->numberBetween($min = 1, $max = 4523523),
                 'img_01' => $faker->image('public/storage/images', 640, 480, null, false),
@@ -43,9 +42,6 @@ class ProductsTableSeeder extends Seeder
                 'quantity' => $faker->numberBetween($min = 1, $max = 45),
 
             ]);
-
-            $product->categories()->sync($categories->random(mt_rand(1, 2)));
-            $product->brands()->sync($brands->random(mt_rand(1, 2)));
 
         }
     }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-') }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -14,10 +14,8 @@
     <!-- WebFont.js -->
     <!-- Template CSS -->
     @yield('extraCss')
-    <link rel="stylesheet" href="/assets/css/responsive.css"/>
-    <link rel="stylesheet" href="/assets/css/plugins/slider-range.css"/>
-    <link rel="stylesheet" href="/assets/css/main.css?v=5.3"/>
-    <link rel="stylesheet" href="/assets/vendor/animate/animate.min.css">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="/vendor/animate/animate.min.css">
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <livewire:styles/>
 </head>
@@ -67,7 +65,7 @@
 <script src="{{ asset('assets/js/loader.js') }}"></script>
 <livewire:scripts/>
 <script>
-    window.livewire_app_url = '{{route('index'{{route('adminLogin')}})}}';
+    window.livewire_app_url = '{{route('index')}})}}';
 </script>
 </body>
 </html>

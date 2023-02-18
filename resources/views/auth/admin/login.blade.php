@@ -14,7 +14,7 @@
                                 />
                                 <h4 class="text-xl font-semibold mt-1 mb-12 pb-1">Admin Dashboard </h4>
                             </div>
-                            <form action="{{ route('adminLoginPost'{{route('adminLogin')}}) }}" method="post"
+                            <form action="{{route('adminLogin')}}" method="post"
                                   enctype="multipart/form-data">
                                 @csrf
                                 <p class="mb-4">Inserisci le tue credenziali per accedere all'area riservata</p>
