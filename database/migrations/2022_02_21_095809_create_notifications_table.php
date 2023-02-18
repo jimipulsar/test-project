@@ -19,8 +19,6 @@ class CreateNotificationsTable extends Migration
             $table->morphs('notifiable');
             $table->text('data');
             $table->timestamp('read_at')->nullable();
-            $table->biginteger('order_id')->unsigned()->nullable();
-            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
             $table->timestamps();
         });
     }

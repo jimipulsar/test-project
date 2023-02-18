@@ -23,8 +23,8 @@ class ProductsTableSeeder extends Seeder
     public function run(Faker $faker)
     {
         $faker = Faker::create();
-        $this->customers = Customer::all();
-        for ($i = 1; $i <= 50; $i++) {
+        $this->users = User::all();
+        for ($i = 1; $i <= 20; $i++) {
             $title = $faker->sentence(1);
             $slug = Str::slug($title);
 
@@ -32,7 +32,7 @@ class ProductsTableSeeder extends Seeder
 
                 'item_name' => $title,
                 'slug' => $slug,
-                'customer_id' => $this->customers[rand(0, count($this->customers) - 1)]->id,
+                'user_id' => $this->users[rand(0, count($this->users) - 1)]->id,
                 'price' => mt_rand(99, 4999) / 100,
                 'item_code' => $faker->numberBetween($min = 1, $max = 4523523),
                 'img_01' => $faker->image('public/storage/images', 640, 480, null, false),

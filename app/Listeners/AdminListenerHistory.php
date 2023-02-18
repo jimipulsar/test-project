@@ -2,8 +2,9 @@
 
 namespace App\Listeners;
 
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
+use App\Events\AdminLoginHistory;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class AdminListenerHistory
 {
@@ -21,10 +22,25 @@ class AdminListenerHistory
      * Handle the event.
      *
      * @param  object  $event
-     * @return void
+     * @return bool
      */
-    public function handle($event)
+    public function handle(AdminLoginHistory $event)
     {
-        //
+        $current_timestamp = Carbon::now()->toDateTimeString();
+
+        if (isset($event->admin)) {
+            $adminInfo = $event->admin;
+        }
+
+        if (isset($adminInfo)) {
+            return DB::table('admin_login_history')->insert(
+                ['name' => $adminInfo->name,
+                    'email' => $adminInfo->email,
+                    'IP' => \request()->ip(),
+                    'browser' => \request()->header('User-Agent'),
+                    'created_at' => $current_timestamp,
+                    'updated_at' => $current_timestamp]
+            );
+        }
     }
 }

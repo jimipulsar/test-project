@@ -54,7 +54,7 @@
                             src="/uploads/logo/logo.png" alt="logo" style="height: 140px;width: 100%;object-fit: contain;"/></a>
                 </div>
                 <div class="header-right">
-                    <livewire:product-search>
+                    <livewire:search-users>
                         <div class="header-action-right">
                             <div class="header-action-2">
                                 <div class="header-action-icon-2">

@@ -19,7 +19,7 @@ class LogActivityController extends Controller
     {
         if (Auth::guard('admin')->check()) {
 
-            $logs = CustomerLogin::orderBy('id', 'DESC')->paginate(10);
+            $logs = AdminLogin::orderBy('id', 'DESC')->paginate(10);
 
             if (!$logs) {
                 abort(404);

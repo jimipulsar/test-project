@@ -23,7 +23,6 @@ class NotificationComposer
     public function __construct()
     {
         $this->notifications = Notification::where('read_at', '=', null)->get();
-        $this->orders = DB::table('orders')->orderBy('created_at', 'DESC')->get();
         $this->customers = DB::table('customers')->orderBy('created_at', 'DESC')->get();
 
     }
@@ -31,7 +30,6 @@ class NotificationComposer
     public function compose(View $view)
     {
         $view->with([
-            'orders' => $this->orders,
             'notifications' => $this->notifications,
             'customers' => $this->customers
         ]);

@@ -67,12 +67,8 @@ class LoginController extends Controller
     {
         if (auth()->guard('customer')->check()) {
             $customer = Auth::guard('customer')->user();
-            $orders = auth()->guard('customer')->user()->orders()->with('products')->orderBy('created_at', 'DESC')->paginate(6);
-            if (!$orders) {
-                abort(404);
-            }
+
             return view('auth.customer.home', [
-                'orders' => $orders,
                 'customer' => $customer]);
         } else {
             return view('auth.customer.home');
