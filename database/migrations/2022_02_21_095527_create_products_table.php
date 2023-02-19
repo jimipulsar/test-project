@@ -37,7 +37,7 @@ return new class extends Migration
             $table->text('slug')->nullable();
             $table->boolean('shippable')->default(false);
             $table->biginteger('user_id')->default(1)->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

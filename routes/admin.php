@@ -18,7 +18,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::resource('users', UserController::class);
     Route::resource('coupon', CouponController::class);
     Route::resource('products', ProductsController::class);
-
+//    Route::any('users/{id?}', [UserController::class, 'store'])->name('userA.store');
     Route::get('/products/duplicate/{id}',[ProductsController::class, 'duplicate'])->name('products.duplicate');
 //    Route::delete('/remove/{product?}',[ProductsController::class, 'remove2'])->name('remove.pro');
 //    Route::delete('/remove2/{product?}',[ProductsController::class, 'remove3'])->name('remove.pro3');
