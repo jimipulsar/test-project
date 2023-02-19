@@ -2,17 +2,6 @@
 
 @section('body')
 
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <strong>Attenzione!</strong> Ci sono problemi con i dati inseriti.<br><br>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-
     <br>
     <div>
         <div class="md:grid md:grid-cols-1 md:gap-2">
@@ -22,10 +11,9 @@
                 </div>
             </div>
             <div class="mt-5 md:mt-0 md:col-span-2">
-                <form action="{{ route('users.store') }}"
-                      enctype="multipart/form-data" method="post">
+                <form action="{{ route('users.store') }}" enctype="multipart/form-data" method="POST">
                     @csrf
-                    @method('PUT')
+
                     <div class="shadow sm:rounded-md sm:overflow-hidden">
                         <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
                             <div class="grid grid-cols-6 gap-6 mt-5">
@@ -81,12 +69,18 @@
                                 </div>
                             </div>
                             <div>
+
                                 <button type="submit"
                                         class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-900 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                                     Apply
                                 </button>
+                                <a href="{{url()->previous()}}"
+                                   class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">Return back
+
+                                </a>
                             </div>
                         </div>
+                    </div>
                 </form>
             </div>
         </div>

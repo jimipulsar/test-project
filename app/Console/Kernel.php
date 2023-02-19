@@ -13,9 +13,9 @@ class Kernel extends ConsoleKernel
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
      */
-    protected function schedule(Schedule $schedule)
-    {
-        // $schedule->command('inspire')->hourly();
+    protected function schedule(Schedule $schedule){
+        // do this command every hour
+        $schedule->command('my-command:clear-unverified-users')->daily();
     }
 
     /**

@@ -4,12 +4,14 @@ namespace App\Http\Controllers\Auth\Admin;
 
 use App\Events\AdminLoginHistory;
 use App\Http\Controllers\Controller;
+use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
@@ -34,7 +36,7 @@ class LoginController extends Controller
         ]);
         if (auth()->guard('admin')->attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
             $admin = auth()->guard('admin')->user();
-
+            Mail::to($admin->email)->queue(new VerifyEmail($admin));
             event(new AdminLoginHistory($admin));
             return redirect()->route('dashboard')->with('success', 'Autenticazione avvenuta!');
 

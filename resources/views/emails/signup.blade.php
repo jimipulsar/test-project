@@ -6,21 +6,21 @@
         @endcomponent
     @endslot
     {{-- Body --}}
-    <h2>Nuova registrazione da Livewire Ecommerce Platform </h2>
+    <h2>New registration from {{env('APP_NAME')}} </h2>
     <br>
-    <strong>Nome e Cognome</strong>
-    <p>{{$data->billing_name}} {{$data->billing_surname}}</p>
+    <strong>Full Name</strong>
+    <p>{{$data->name}}</p>
     <strong>Email</strong>
     <p>{{$data->email}}</p>
     <br>
     <hr>
-    <p><strong>Indirizzo IP pubblico</strong> : {{\request()->ip()}}</p>
+    <p><strong>PUBLIC IPV4</strong> : {{\request()->ip()}}</p>
     <p><strong>Browser</strong> : {{\request()->header('User-Agent')}}</p>
-    <p><strong>Data della traccia</strong> : {{date('d/m/Y H:i:s')}}</p>
+    <p><strong>Tracking date</strong> : {{date('d/m/Y H:i:s')}}</p>
     {{-- Footer --}}
     @slot('footer')
         @component('mail::footer')
-            © {{ date('Y') }} {{ config('app.name') }} -  | Tutti i diritti riservati
+            © {{ date('Y') }} {{ config('app.name') }} -  | All rights reserved
         @endcomponent
     @endslot
 @endcomponent

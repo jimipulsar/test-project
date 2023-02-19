@@ -1,16 +1,16 @@
 @extends('backend.adminlayouts.master')
 
 @section('body')
-    @if (session()->has('success'))
-        <div class="alert alert-success animated slideInRight" id="hideMe">
-            <p>{!! session()->get('success')!!}   </p>
-        </div>
-    @endif
-    @if (session()->has('danger'))
-        <div class="alert alert-danger animated slideInRight" id="hideMe">
-            <p>{!! session()->get('danger')!!}   </p>
-        </div>
-    @endif
+{{--    @if (session()->has('success'))--}}
+{{--        <div class="alert alert-success animated slideInRight" id="hideMe">--}}
+{{--            <p>{!! session()->get('success')!!}   </p>--}}
+{{--        </div>--}}
+{{--    @endif--}}
+{{--    @if (session()->has('danger'))--}}
+{{--        <div class="alert alert-danger animated slideInRight" id="hideMe">--}}
+{{--            <p>{!! session()->get('danger')!!}   </p>--}}
+{{--        </div>--}}
+{{--    @endif--}}
     <form action="{{ route('users.update', $user->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
@@ -58,17 +58,17 @@
                     </div>
 
 
-                    <div class="px-4 py-3 text-right sm:px-6">
-                        <a href="{{url()->previous()}}"
-                           class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">Torna
-                            indietro
+                    <div class="text-left ">
 
-                        </a>
 
                         <button type="submit"
                                 class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-900 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                            Salva
+                            Save
                         </button>
+                        <a href="{{url()->previous()}}"
+                           class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">Return Back
+
+                        </a>
                     </div>
                 </div>
             </div>

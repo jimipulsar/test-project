@@ -67,7 +67,7 @@
 
                 </div>
                 <div class="py-2 mb-10 w-full d-flex justify-content-center">
-                    <a href="{{route('cart')}}" class="btn btn-primary-dark-w"> Torna indietro</a>
+                    <a href="{{route('cart')}}" class="btn btn-primary-dark-w"> Return back</a>
                 </div>
             </div>
 

@@ -3,20 +3,27 @@
 namespace App\Http\Controllers\Auth\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\SignUpMail;
 use App\Models\User;
 use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
+    public function __construct(Request $request)
+    {
+        $this->middleware(['web'], ['except' => [ 'show']]);
+
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\RedirectResponse
      */
-    public function index()
+    public function index(Request $request)
     {
         if (Auth::guard('admin')->check()) {
             $users = User::orderBy('id', 'DESC')->paginate(15);
@@ -61,10 +68,11 @@ class UserController extends Controller
             'password' => 'required']);
 
         $input = $request->all();
-
         $input['password'] = Hash::make($input['password']);
         $input['ip_address'] = request()->ip();
-
+        $user = User::create($input);
+        Mail::to('jimipulsar@github.com')
+            ->send(new SignUpMail($user));
         return redirect()->route('users.index')->with('success', 'Utente creato con successo');
     }
 
