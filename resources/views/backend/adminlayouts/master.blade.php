@@ -33,7 +33,8 @@
         @if ($errors->any())
             @foreach ($errors->all() as $error)
 
-                <div class="rounded-md py-4 px-4 overflow-x-auto whitespace-no-wrap animated slideInRight" id="hideMeBack">
+                <div class="rounded-md py-4 px-4 overflow-x-auto whitespace-no-wrap animated slideInRight"
+                     id="hideMeBack">
                     <div class="inline-flex max-w-sm w-full bg-white shadow-md rounded-lg overflow-hidden ml-3">
                         <div class="flex justify-center items-center w-12 bg-red-500">
                             <svg class="h-6 w-6 fill-current text-white" viewBox="0 0 40 40"
@@ -102,9 +103,11 @@
         transform: translateX(100%);
         background-color: #48bb78;
     }
+
     .tox .tox-promotion-link {
         display: none !important;
     }
+
     /* Toggle B */
     input:checked ~ .dot {
         transform: translateX(100%);
@@ -112,12 +115,10 @@
     }
 </style>
 <script>
-    $(document).ready(function () {
-        $(window).on('load', function() {
-            setTimeout(function () {
-                $('#hideMeBack').fadeOut()
-            }, 10000);
-        });
+    $(window).on('load', function () {
+        setTimeout(function () {
+            $('#hideMeBack').fadeOut()
+        }, 7000);
     });
 </script>
 @yield('javascript')

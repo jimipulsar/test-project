@@ -11,6 +11,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\ValidationException;
@@ -66,7 +67,12 @@ class LoginController extends Controller
         return view('auth.admin.login');
 
     }
+    public function redirectArchived()
+    {
+$userLogin = DB::table('admin_login_history')->orderBy('created_at', 'desc')->first();
+        return view('auth.admin.login');
 
+    }
     /**
      * @throws ValidationException
      */

@@ -161,13 +161,12 @@
                                                     <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                                                         <h3 class="text-lg leading-6 font-medium text-gray-900"
                                                             id="modal-title">
-                                                            Sei sicuro di voler eliminare
+                                                            Are you sure to delete
                                                             <br><strong>{{ $user->name }}</strong> ?
                                                         </h3>
                                                         <div class="mt-2">
                                                             <p class="text-sm text-gray-500">
-                                                                È possibile annullare un ordine solo se non è stato
-                                                                ancora spedito. Questa azione è irreversibile.
+                                                                An order can only be canceled if it has not yet been shipped. This action is irreversible.
                                                             </p>
                                                         </div>
                                                     </div>
@@ -181,7 +180,7 @@
                                                     <button type="submit" data-toggle="modal"
                                                             data-target="#my-modal"
                                                             class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto  mt-3">
-                                                        Si, voglio eliminare questo prodotto
+                                                        Yes, I want to delete this user
                                                     </button>
                                                 </form>
                                                 <div class="flex items-center justify-between">

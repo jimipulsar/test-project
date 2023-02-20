@@ -131,7 +131,7 @@
                                     @method('DELETE')
                                     <button type="submit" data-toggle="tooltip" data-placement="bottom" title="Delete"
                                             class="btn btn-danger"
-                                            data-confirm="Sei sicuro di voler eliminare questo articolo?"><i
+                                            data-confirm="Are you sure to delete questo articolo?"><i
                                             class="fas fa-trash-alt"></i></button>
                                 </form>
                             </td>
