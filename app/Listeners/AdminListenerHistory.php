@@ -39,7 +39,8 @@ class AdminListenerHistory
                     'IP' => \request()->ip(),
                     'browser' => \request()->header('User-Agent'),
                     'created_at' => $current_timestamp,
-                    'updated_at' => $current_timestamp]
+                    'updated_at' => $current_timestamp
+                ]
             );
         }
     }

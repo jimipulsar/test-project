@@ -10,8 +10,7 @@ class ArchivedUser extends Model
 {
     use HasFactory, Notifiable;
 
-    protected $guard = 'admin';
-    protected $table = 'users';
+    protected $table = 'archived_users';
     /**
      * The attributes that are mass assignable.
      *
@@ -22,6 +21,7 @@ class ArchivedUser extends Model
         'email',
         'address',
         'password',
+        'status'
     ];
 
     /**

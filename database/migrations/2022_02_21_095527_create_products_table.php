@@ -38,6 +38,8 @@ return new class extends Migration
             $table->boolean('shippable')->default(false);
             $table->biginteger('user_id')->default(1)->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->biginteger('archived_user_id')->default(1)->unsigned();
+            $table->foreign('archived_user_id')->references('id')->on('archived_users')->onDelete('cascade');
             $table->timestamps();
         });
     }

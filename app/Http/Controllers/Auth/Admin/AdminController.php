@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Auth\Admin;
 
 use App\Events\AdminLoginHistory;
 use App\Http\Controllers\Controller;
+use App\Models\AdminLogin;
+use App\Models\ArchivedUser;
 use App\Models\Customer;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -40,6 +43,15 @@ class AdminController extends Controller
 
     }
 
+    public function archivedUsers()
+    {
+        $archivedUsers = ArchivedUser::orderBy('id', 'DESC')->paginate(15);
+        return view('auth.admin.archived-users', [
+            'archivedUsers' => $archivedUsers
+        ]);
+
+    }
+
     public function getLogin()
     {
         if (auth()->guard('web')->user()) {
@@ -52,7 +64,7 @@ class AdminController extends Controller
      * @throws ValidationException
      */
 
-    public function postLogin( Request $request)
+    public function postLogin(Request $request)
     {
         $this->validate($request, [
             'email' => 'required|email',
@@ -148,6 +160,26 @@ class AdminController extends Controller
             $notifications = DB::table('notifications')->orderBy('created_at', 'DESC')->get();
             $users = DB::table('users')->orderBy('created_at', 'DESC')->get();
             $products = DB::table('products')->count();
+            $userLogin = DB::table('admin_login_history')->orderBy('created_at', 'desc')->first();
+            $minutesAgo = Carbon::now()->subMinutes(2)->diffForHumans();
+            $current_timestamp = Carbon::now()->toDateTimeString();
+//            $userArchived = array();
+//            $userAuth = auth()->user()->toArray();
+//            $userAuthPassword = auth()->user()->getAuthPassword();
+//
+////            dd($userAuth);
+//            if ($userLogin->created_at > $minutesAgo) {
+////                AdminLogin::create();
+//                ArchivedUser::create([
+//                    'name' => $userAuth['name'],
+//                    'email' => $userAuth['email'],
+//                    'password' => $userAuthPassword,
+//                    'created_at' => $current_timestamp,
+//                    'updated_at' => $current_timestamp
+//                ]);
+//                $minutesAgo = Carbon::now()->subMinutes(2)->diffForHumans();
+////                dd($userLogin);
+//            }
 
             return view('auth.admin.dashboard', [
                 'users' => $users,
@@ -160,36 +192,4 @@ class AdminController extends Controller
 
     }
 
-    public function searchOrder()
-    {
-        if (auth()->guard('web')->check()) {
-            $pagination = 6;
-            $notifications = DB::table('notifications')->orderBy('created_at', 'DESC')->get();
-            $customers = DB::table('customers')->orderBy('created_at', 'DESC')->get();
-            $products = DB::table('products')->count();
-
-            $o = trim(\request()->input('o'));
-
-            $query = \request()->all();
-            $orders = Order::query()->where('order_number', 'LIKE', '%' . $o . '%')
-                ->orWhere('billing_name', 'LIKE', '%' . $o . '%')
-                ->paginate($pagination);
-            $orders->appends(['search' => $o]);
-
-            if (count($orders) > 0) {
-                return view('auth.admin.dashboard')->withDetails($orders)->withQuery($o)->with([
-                    'o' => $o,
-                    'query' => $query,
-                    'products' => $products,
-                    'customers' => $customers,
-                    'notifications' => $notifications,
-                    'orders' => $orders,
-                ]);
-            } else {
-                return redirect()->back()->with('danger', 'Corrispondenza non trovata');
-            }
-        } else {
-            return redirect()->route('index');
-        }
-    }
 }

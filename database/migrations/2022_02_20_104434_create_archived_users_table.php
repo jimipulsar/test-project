@@ -16,10 +16,11 @@ class CreateArchivedUsersTable extends Migration
         Schema::create('archived_users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('address')->default('25 Avenue Street');
+            $table->string('address')->default('25 Avenue Street')->nullable();
             $table->string('password');
+            $table->integer('status')->default(1)->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

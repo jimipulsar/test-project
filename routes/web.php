@@ -58,12 +58,9 @@ Route::group(['middleware' => ['auth']], function () {
         Route::any('/products/remove-attachment/{id}/{product?}', [ProductsController::class, 'removeAttachment'])->name('removeAttachment');
 
         Route::view('/forms', 'auth.admin.forms')->name('forms');
-
-        Route::any('/search', [AdminController::class, 'searchOrder'])->name('searchOrder');
-        Route::any('/search-product', [ProductsController::class, 'searchProduct'])->name('searchProduct');
-
         Route::any('/logs', [LogActivityController::class, 'index'])->name('logActivity');
         Route::any('/admin-logs', [LogActivityController::class, 'admin'])->name('AdminLogActivity');
+        Route::get('/archived-users', [AdminController::class, 'archivedUsers'])->name('archivedUsers');
 
         Route::get('profile', [ProfileAdminController::class, 'index'])->name('profileAdmin');
         Route::any('profile/{id?}', [ProfileAdminController::class, 'update'])->name('updateAdmin');
