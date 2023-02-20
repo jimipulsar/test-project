@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Events\AdminLastLogin;
 use App\Events\AdminLoginHistory;
 use App\Events\CustomerLoginHistory;
+use App\Listeners\AdminLastLoginListener;
 use App\Listeners\AdminListenerHistory;
 use App\Listeners\CustomerListenerHistory;
 use Illuminate\Auth\Events\Registered;
@@ -27,6 +29,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         AdminLoginHistory::class => [
             AdminListenerHistory::class,
+        ],
+        AdminLastLogin::class => [
+            AdminLastLoginListener::class,
         ]
     ];
 

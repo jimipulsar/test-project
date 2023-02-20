@@ -4,10 +4,12 @@ namespace App\Http\Middleware;
 
 use App\Models\AdminLogin;
 use App\Models\ArchivedUser;
+use App\Models\User;
 use Carbon\Carbon;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class CheckArchived
@@ -28,23 +30,20 @@ class CheckArchived
 //        }
 
         $minutesAgo = Carbon::now()->subMinutes(1);
-        if (auth()->check() && (auth()->user()->created_at <= $minutesAgo)) {
-            $archivedUser = AdminLogin::where('email', '=', auth()->user()->email)->orderBy('created_at', 'desc')->first();
-            if ($archivedUser != null) {
+        if (auth()->check()) {
+            $current_timestamp = Carbon::now()->toDateTimeString();
 
-                ArchivedUser::create([
-                    'name' => auth()->user()->name,
-                    'email' => auth()->user()->email,
-                    'password' => Hash::make(auth()->user()->password)
-                ]);
-                Auth::logout();
+            DB::table('users')->where('id', '=', auth()->user()->id)
+                ->orderBy('created_at', 'desc')
+                ->update(
+                    [
+                        'last_login_at' => $current_timestamp,
+                    ]
+                );
 
-                $request->session()->invalidate();
 
-                $request->session()->regenerateToken();
+//                return redirect()->route('login')->with('warning', 'Your Account is archived. Please contact administrator');
 
-                return redirect()->route('login')->with('warning', 'Your Account is archived. Please contact administrator');
-            }
         }
 
         return $next($request);

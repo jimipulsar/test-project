@@ -14,8 +14,8 @@ class DeleteUnverifiedUsers extends Command
         $this->info('Deleting old unverified users...');
 
         $count = User::query()
-            ->whereNull('email_verified_at')
-            ->where('created_at', '<', now()->subDays(10))
+            ->whereNotNull('last_login_at')
+            ->where('last_login_at', '<', now()->subMinutes(2))
             ->delete();
 
         $this->comment("Deleted {$count} unverified users.");
