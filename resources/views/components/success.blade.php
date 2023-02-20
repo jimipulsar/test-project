@@ -1,11 +1,11 @@
 @if (session()->has('success'))
     <div class="alert alert-success alert-simple alert-inline show-code-action animated slideInRight" id="hideMe">
-        <h4 class="alert-title">Operazione completata! </h4> {!! __(session()->get('success'))!!}
+        <h4 class="alert-title">Operation completed! </h4> {!! __(session()->get('success'))!!}
     </div>
 @endif
 @if (session()->has('mailSuccess'))
     <div class="alert alert-success alert-simple alert-inline show-code-action animated slideInRight" id="hideMe">
-        <h4 class="alert-title">Operazione completata! </h4> {!! __(session()->get('mailSuccess'))!!}
+        <h4 class="alert-title">Operation completed! </h4> {!! __(session()->get('mailSuccess'))!!}
     </div>
 @endif
 @if (session()->has('danger'))
@@ -15,6 +15,6 @@
 @endif
 @if (session()->has('status'))
     <div class="alert alert-success alert-simple alert-inline show-code-action animated slideInRight" id="hideMe">
-        <p> <h4 class="alert-title">Operazione completata! </h4> {!! __(session()->get('status'))!!} </p>
+        <p> <h4 class="alert-title">Operation completed! </h4> {!! __(session()->get('status'))!!} </p>
     </div>
 @endif

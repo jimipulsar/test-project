@@ -96,7 +96,7 @@
                                     @else
 {{--                                        <a href="{{route('login')}}"><span--}}
 {{--                                                class="lable ml-0"><img class="svgInject" alt="Livewire"--}}
-{{--                                                                        src="/assets/imgs/theme/icons/icon-user.svg"/>Accedi</span></a>--}}
+{{--                                                                        src="/assets/imgs/theme/icons/icon-user.svg"/>Log in</span></a>--}}
 {{--                                        <span class="delimiter d-lg-show">/</span>--}}
                                         {{--                                    <a href="{{route('register')}}"--}}
                                         {{--                                       class="ml-0 d-lg-show">Registrati</a>--}}

@@ -80,7 +80,7 @@ class LoginController extends Controller
         if (auth()->guard('web')->attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
             $admin = auth()->guard('web')->user();
             event(new AdminLoginHistory($admin));
-            return redirect()->route('dashboard')->with('success', 'Autenticazione avvenuta!');
+            return redirect()->route('dashboard')->with('success', 'Authentication successful!');
 
         } else {
             return $this->sendFailedLoginResponse($request);
@@ -126,7 +126,7 @@ class LoginController extends Controller
         Auth::guard('web')->logout();
 //        Session::flush();
 
-        return redirect()->route('login')->with('success', 'Sei uscito correttamente');
+        return redirect()->route('login')->with('success', 'You logged out with success');
 
     }
 

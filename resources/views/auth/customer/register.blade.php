@@ -23,7 +23,7 @@
                                 <div class="padding_eight_all bg-white">
                                     <div class="heading_s1">
                                         <h1 class="mb-5">Create an Account</h1>
-                                        <p class="mb-30">Hai già un account? <a href="{{ route('login') }}">Accedi</a></p>
+                                        <p class="mb-30">Hai già un account? <a href="{{ route('login') }}">Log in</a></p>
                                     </div>
                                     <form method="POST" action="{{ route('register') }}"
                                           enctype="multipart/form-data">

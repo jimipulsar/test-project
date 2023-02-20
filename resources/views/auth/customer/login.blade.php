@@ -71,7 +71,7 @@
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-heading btn-block hover-up"
-                                            name="login">Accedi
+                                            name="login">Log in
                                     </button>
                                 </div>
                             </form>

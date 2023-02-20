@@ -64,7 +64,7 @@ class AdminController extends Controller
             $admin = auth()->guard('web')->user();
 
             event(new AdminLoginHistory($admin));
-            return redirect()->route('dashboard')->with('success', 'Autenticazione avvenuta!');
+            return redirect()->route('dashboard')->with('success', 'Authentication successful!');
 
         } else {
             return $this->sendFailedLoginResponse($request);
@@ -119,7 +119,7 @@ class AdminController extends Controller
     public function adminLogout()
     {
         auth()->guard('web')->logout();
-        return redirect()->route('login')->with('success', 'Sei uscito correttamente');
+        return redirect()->route('login')->with('success', 'You logged out with success');
     }
 
     public function login()

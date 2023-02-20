@@ -28,7 +28,7 @@
                 <div class="-mx-3 py-2 px-4">
                     <div class="mx-3">
                         <span
-                            class="text-green-500 font-semibold">Operazione eseguita</span>
+                            class="text-green-500 font-semibold">Operation confirmed</span>
                         <p class="text-gray-600 text-sm">{{ \Session::get('success') }}</p>
                     </div>
                 </div>
