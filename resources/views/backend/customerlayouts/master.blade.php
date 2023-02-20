@@ -223,8 +223,8 @@
                                 <ul>
                                     <li><a href="product-variable.html">Variable Product</a></li>
                                     <li><a href="product-featured.html">Featured &amp; Sale</a></li>
-                                    <li><a href="product-accordion.html">Data In Accordion</a></li>
-                                    <li><a href="product-section.html">Data In Sections</a></li>
+                                    <li><a href="product-accordion.html">Date In Accordion</a></li>
+                                    <li><a href="product-section.html">Date In Sections</a></li>
                                     <li><a href="product-swatch.html">Image Swatch</a></li>
                                     <li><a href="product-extended.html">Extended Info</a>
                                     </li>

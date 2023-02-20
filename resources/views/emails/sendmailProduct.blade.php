@@ -19,9 +19,9 @@
     <p>{{$data->message}}</p>
     <br>
     <hr>
-    <p><strong>Indirizzo IP pubblico</strong> : {{$data->getClientIp()}}</p>
+    <p><strong>Public IPv4</strong> : {{$data->getClientIp()}}</p>
     <p><strong>Browser</strong> : {{$data->header('User-Agent')}}</p>
-    <p><strong>Data della traccia</strong> : {{date('d/m/Y H:i:s')}}</p>
+    <p><strong>Tracking Date</strong> : {{date('d/m/Y H:i:s')}}</p>
     <p>
         <a href="mailto:{{$data->email}}" style="text-align: center; padding: 10px; border: 2px solid #38aec7; background-color: #4295b4; border-radius: 3px; color: white; text-decoration: none;">Rispondi</a>
     </p>

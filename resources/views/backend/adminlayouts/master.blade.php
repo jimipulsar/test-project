@@ -75,7 +75,7 @@
             };
 
             // read the image file as a data URL.
-            reader.readAsDataURL(this.files[0]);
+            reader.readAsDateURL(this.files[0]);
         });
     });
 </script>

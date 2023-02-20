@@ -35,7 +35,7 @@
                                                 <thead>
                                                 <tr>
                                                     <th>N. Ordine</th>
-                                                    <th>Data</th>
+                                                    <th>Date</th>
                                                     <th>Stato</th>
                                                     <th>Totale</th>
                                                     <th>Actions</th>
@@ -104,7 +104,7 @@
     {{--                                        <thead>--}}
     {{--                                        <tr>--}}
     {{--                                            <th class="order-id">ID Ordine</th>--}}
-    {{--                                            <th class="order-date">Data</th>--}}
+    {{--                                            <th class="order-date">Date</th>--}}
     {{--                                            <th class="order-status">Stato</th>--}}
     {{--                                            <th class="order-total">Totale</th>--}}
     {{--                                            <th class="order-actions">Actions</th>--}}
