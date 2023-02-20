@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('address')->default('25 Avenue Street');
             $table->string('password')->nullable();
             $table->integer('status')->default(1);
-            $table->timestamp('last_login_at')->nullable();
+            $table->dateTime('last_login_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

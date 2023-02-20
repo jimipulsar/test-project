@@ -14,7 +14,7 @@ class Kernel extends ConsoleKernel
      * @return void
      */
     protected $commands = [
-        Commands\DeleteUnverifiedUsers::class,
+        Commands\DeleteNotLoggedUser::class,
     ];
     /**
      * Define the application's command schedule.

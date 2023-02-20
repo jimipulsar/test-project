@@ -9,13 +9,25 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 
-class DeleteUnverifiedUsers extends Command
+class DeleteNotLoggedUser extends Command
 {
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
     protected $signature = 'dear:last-login';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'User not logged in the last 24 hours';
 
     public function handle()
     {
-        $this->info('Deleting user not logged in since 24 hours...');
+        $this->info('Deleting user not logged in the last 24 hours...');
         $current_timestamp = Carbon::now()->toDateTimeString();
 
         $count = User::query()
@@ -32,7 +44,7 @@ class DeleteUnverifiedUsers extends Command
             'updated_at' => $current_timestamp
         ]);
         $count->delete();
-        $this->comment("Deleted {$count} not logged in since 24 hours.");
+        $this->comment("Deleted {$count} not logged in the last 24 hours.");
 
         $this->info('All done!');
     }
