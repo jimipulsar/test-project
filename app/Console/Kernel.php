@@ -14,7 +14,7 @@ class Kernel extends ConsoleKernel
      * @return void
      */
     protected $commands = [
-        Commands\DailyArchived::class,
+        Commands\DeleteUnverifiedUsers::class,
     ];
     /**
      * Define the application's command schedule.
@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('quote:daily')
+        $schedule->command('dear:last-login')
             ->everyMinute();
     }
     /**
