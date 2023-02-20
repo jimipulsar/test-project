@@ -6,30 +6,7 @@
                       stroke-linejoin="round"/>
             </svg>
         </button>
-        <div class="relative mx-4 lg:mx-0 ">
-            <form class="input-group px-3" id="mysearch"
-                  action="{{route('searchOrder')}}"
-                  method="POST" role="search">
-                {{ csrf_field() }}
-                <label class="sr-only" for="search">Search</label>
-                <span class="absolute inset-y-0 pl-3 flex items-center">
-                            <svg class="h-5 w-5 text-gray-500 mr-3" viewBox="0 0 24 24" fill="none">
-                                <path
-                                        d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
-                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round">
-                                </path>
-                            </svg>
-                        </span>
-                <input type="text"
-                       class="py-1 form-input w-32 sm:w-64 rounded-md pl-10 pr-4 "
-                       name="o" placeholder="Search for ordine"
-                       aria-label="o" aria-describedby="search" required>
 
-
-            </form>
-
-        </div>
     </div>
 
     <div class="flex items-center">
@@ -63,56 +40,6 @@
             <div x-show="notificationOpen"
                  class="absolute right-0 mt-2 w-80 bg-white rounded-lg shadow-xl overflow-hidden z-10"
                  style="width:20rem;">
-                @if($notifications->count() > 0)
-                    @foreach( $notifications as $notify)
-
-                        @if($notify->order_id)
-                            <a href="{{ route('adminOrders.show',[ $notify->order_id]) }}"
-                               class="flex items-center px-4 py-3 text-gray-600 hover:text-white hover:bg-blue-900 -mx-2">
-                                <svg class="svg-icon font-size-11" viewBox="0 0 20 20" style="height:20px">
-                                    <path
-                                            d="M17.35,2.219h-5.934c-0.115,0-0.225,0.045-0.307,0.128l-8.762,8.762c-0.171,0.168-0.171,0.443,0,0.611l5.933,5.934c0.167,0.171,0.443,0.169,0.612,0l8.762-8.763c0.083-0.083,0.128-0.192,0.128-0.307V2.651C17.781,2.414,17.587,2.219,17.35,2.219M16.916,8.405l-8.332,8.332l-5.321-5.321l8.333-8.332h5.32V8.405z M13.891,4.367c-0.957,0-1.729,0.772-1.729,1.729c0,0.957,0.771,1.729,1.729,1.729s1.729-0.772,1.729-1.729C15.619,5.14,14.848,4.367,13.891,4.367 M14.502,6.708c-0.326,0.326-0.896,0.326-1.223,0c-0.338-0.342-0.338-0.882,0-1.224c0.342-0.337,0.881-0.337,1.223,0C14.84,5.826,14.84,6.366,14.502,6.708"></path>
-                                </svg>
-                                <p class="text-sm mx-2">
-                                    Richiesta <span
-                                            class="font-bold">nuovo ordine</span>
-                                    - {{ Carbon\Carbon::parse($notify->created_at)->diffForHumans() }}
-                                </p>
-                            </a>
-                        @endif
-                        @foreach( collect(json_decode($notify->data, true)) as $key => $value )
-                            @if($key == 'email_subscription')
-
-                                <a href="{{ route('subscribers.index') }}"
-                                   class="flex items-center px-4 py-3 text-gray-600 hover:text-white hover:bg-blue-900 -mx-2">
-                                    <svg class="svg-icon font-size-11" viewBox="0 0 20 20" style="height:20px">
-                                        <path
-                                                d="M17.35,2.219h-5.934c-0.115,0-0.225,0.045-0.307,0.128l-8.762,8.762c-0.171,0.168-0.171,0.443,0,0.611l5.933,5.934c0.167,0.171,0.443,0.169,0.612,0l8.762-8.763c0.083-0.083,0.128-0.192,0.128-0.307V2.651C17.781,2.414,17.587,2.219,17.35,2.219M16.916,8.405l-8.332,8.332l-5.321-5.321l8.333-8.332h5.32V8.405z M13.891,4.367c-0.957,0-1.729,0.772-1.729,1.729c0,0.957,0.771,1.729,1.729,1.729s1.729-0.772,1.729-1.729C15.619,5.14,14.848,4.367,13.891,4.367 M14.502,6.708c-0.326,0.326-0.896,0.326-1.223,0c-0.338-0.342-0.338-0.882,0-1.224c0.342-0.337,0.881-0.337,1.223,0C14.84,5.826,14.84,6.366,14.502,6.708"></path>
-                                    </svg>
-                                    <p class="text-sm mx-2">
-                                        Nuovo utente iscritto alla <span
-                                                class="font-bold">newsletter</span>
-                                        - {{ Carbon\Carbon::parse($notify->created_at)->diffForHumans() }}
-                                    </p>
-                                </a>
-                            @endif
-                        @endforeach
-
-                    @endforeach
-
-                @else
-                    <a href="#"
-                       class="flex items-center px-4 py-3 text-gray-600 hover:text-white hover:bg-blue-900 -mx-2">
-                        <svg class="svg-icon font-size-11" viewBox="0 0 20 20" style="height:20px">
-                            <path
-                                    d="M17.35,2.219h-5.934c-0.115,0-0.225,0.045-0.307,0.128l-8.762,8.762c-0.171,0.168-0.171,0.443,0,0.611l5.933,5.934c0.167,0.171,0.443,0.169,0.612,0l8.762-8.763c0.083-0.083,0.128-0.192,0.128-0.307V2.651C17.781,2.414,17.587,2.219,17.35,2.219M16.916,8.405l-8.332,8.332l-5.321-5.321l8.333-8.332h5.32V8.405z M13.891,4.367c-0.957,0-1.729,0.772-1.729,1.729c0,0.957,0.771,1.729,1.729,1.729s1.729-0.772,1.729-1.729C15.619,5.14,14.848,4.367,13.891,4.367 M14.502,6.708c-0.326,0.326-0.896,0.326-1.223,0c-0.338-0.342-0.338-0.882,0-1.224c0.342-0.337,0.881-0.337,1.223,0C14.84,5.826,14.84,6.366,14.502,6.708"></path>
-                        </svg>
-                        <p class="text-sm mx-2">
-                            Nessun <span
-                                    class="font-bold">nuovo ordine</span>
-                        </p>
-                    </a>
-                @endif
             </div>
         </div>
 
