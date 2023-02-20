@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Events\AdminLoginHistory;
 use App\Events\CustomerLoginHistory;
-use App\Events\LoginHistory;
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
-use App\Models\Wishlist;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\JsonResponse;
@@ -45,17 +44,15 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('customer')->except('logout');
+        $this->middleware('web')->except('logout');
     }
 
     public function login()
     {
-        if (auth()->guard('customer')->check()) {
-            $customer = Auth::guard('customer')->user();
-            return view('auth.customer.home', ['customer' => $customer]);
-        } else {
-            return view('auth.customer.login');
+        if (auth()->user()) {
+            return redirect()->route('dashboard');
         }
+        return view('auth.admin.login');
     }
 //    public function getLogin()
 //    {
@@ -65,52 +62,25 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        if (auth()->guard('customer')->check()) {
-            $customer = Auth::guard('customer')->user();
 
-            return view('auth.customer.home', [
-                'customer' => $customer]);
-        } else {
-            return view('auth.customer.home');
-        }
+        return view('auth.admin.login');
+
     }
 
     /**
      * @throws ValidationException
      */
 
-    public function postLogin( Request $request)
+    public function postLogin(Request $request)
     {
         $this->validate($request, [
             'email' => 'required|email',
             'password' => 'required',
         ]);
-        if (auth()->guard('customer')->attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
-            $wishSession = session()->get('wishlist');
-
-            if (isset($wishSession)) {
-
-                foreach ($wishSession as $wish) {
-
-                    $wishItem = Wishlist::firstOrNew([
-                        'customer_id' => auth()->guard('customer')->user()->id,
-                        'product_id' => $wish['product_id']
-
-                    ]);
-                    session()->forget('wishlist');
-                    $wishItem->save();
-                }
-
-
-            }
-            session()->forget('wishlist');
-            $customer = Auth::user();
-
-            event(new CustomerLoginHistory($customer));
-
-//            RateLimiter::clear($this->throttleKey());
-            return redirect()->route('orders.index')->with('success', 'Autenticazione avvenuta!');
-
+        if (auth()->guard('web')->attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
+            $admin = auth()->guard('web')->user();
+            event(new AdminLoginHistory($admin));
+            return redirect()->route('dashboard')->with('success', 'Autenticazione avvenuta!');
 
         } else {
             return $this->sendFailedLoginResponse($request);
@@ -148,15 +118,15 @@ class LoginController extends Controller
 
     protected function guard()
     {
-        return Auth::guard('customer');
+        return Auth::guard('web');
     }
 
     public function logout(Request $request)
     {
-        Auth::guard('customer')->logout();
+        Auth::guard('web')->logout();
 //        Session::flush();
 
-        return redirect()->route('home')->with('success', 'Sei uscito correttamente');
+        return redirect()->route('login')->with('success', 'Sei uscito correttamente');
 
     }
 

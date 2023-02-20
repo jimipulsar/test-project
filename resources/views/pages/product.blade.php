@@ -15,7 +15,7 @@
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
-                    <a href="{{route('adminLogin')}}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
+                    <a href="{{route('login')}}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
                     <span></span> <a href="{{route('shop.index')}}">Categorie</a>
                     <span></span> <a
                             href="{{ route('categoryPage',[productDetails($product->id)['category_id'],  productDetails($product->id)['category_slug']]) }}"> {{ucFirst(productDetails($product->id)['name'])}}</a>

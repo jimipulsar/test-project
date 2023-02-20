@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\User;
+
 return [
 
     /*
@@ -13,13 +15,9 @@ return [
     |
     */
 
-//    'defaults' => [
-//        'guard' => 'web',
-//        'passwords' => 'users',
-//    ],
     'defaults' => [
-        'guard' => 'customer',
-        'passwords' => 'customers',
+        'guard' => 'web',
+        'passwords' => 'users',
     ],
 
     /*
@@ -35,23 +33,16 @@ return [
     | users are actually retrieved out of your database or other storage
     | mechanisms used by this application to persist your user's data.
     |
-    | Supported: "session"
+    | Supported: "session", "token"
     |
     */
 
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'customers',
+            'provider' => 'users',
         ],
-        'customer' => [
-            'driver' => 'session',
-            'provider' => 'customers',
-        ],
-        'admin' => [
-            'driver' => 'session',
-            'provider' => 'admins',
-        ],
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -77,17 +68,11 @@ return [
     */
 
     'providers' => [
-
-        'customers' => [
+        'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Customer::class,
-
+            'model' => User::class,
         ],
-        'admins' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\User::class,
 
-        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -110,10 +95,10 @@ return [
     */
 
     'passwords' => [
-        'customers' => [
-            'provider' => 'customers',
+        'users' => [
+            'provider' => 'users',
             'table' => 'password_resets',
-            'expire' => 60,
+            'expire' => 86400,
             'throttle' => 60,
         ],
     ],

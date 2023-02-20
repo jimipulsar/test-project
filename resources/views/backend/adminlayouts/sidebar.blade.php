@@ -9,7 +9,7 @@
         <div class="d-inline-block" style="max-width: 190px;">
             <img src="/ico/user.png" style="height:35px; display:inline-block" alt="Pie Dev">
             <span
-                    class="text-white mx-2 font-semibold font-size-6" style="line-height: 30px;">Benvenuto, <br>{{auth()->guard('admin')->user()->name}}</span>
+                    class="text-white mx-2 font-semibold font-size-6" style="line-height: 30px;">Benvenuto, <br>{{auth()->guard('web')->user()->name ?? ''}}</span>
         </div>
     </div>
 
@@ -65,7 +65,7 @@
                                 document.getElementById('logout-form').submit();">
             {{ __('Esci') }}
         </a>
-        <form id="logout-form" action="{{ route('adminLogout') }}" method="POST"
+        <form id="logout-form" action="{{ route('logout') }}" method="POST"
               class="d-none">
             @csrf
         </form>

@@ -17,7 +17,7 @@ class LogActivityController extends Controller
 
     public function index()
     {
-        if (Auth::guard('admin')->check()) {
+        if (Auth::guard('web')->check()) {
 
             $logs = AdminLogin::orderBy('id', 'DESC')->paginate(10);
 
@@ -35,7 +35,7 @@ class LogActivityController extends Controller
     }
     public function admin()
     {
-        if (Auth::guard('admin')->check()) {
+        if (Auth::guard('web')->check()) {
 
             $logs = AdminLogin::orderBy('id', 'DESC')->paginate(10);
 

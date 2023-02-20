@@ -145,7 +145,7 @@
                  class="absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-10">
             {{-- <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-900 hover:text-white">Profile</a>
             <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-900 hover:text-white">Products</a> --}}
-            @if(Auth::guard('admin')->user())
+            @if(auth()->guard('web')->user())
 
                 <!-- Active: "bg-gray-100", Not Active: "" -->
                     {{--                     <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>--}}
@@ -157,7 +157,7 @@
                                 document.getElementById('logout-form').submit();">
                         {{ __('Esci') }}
                     </a>
-                    <form id="logout-form" action="{{ route('adminLogout') }}" method="POST"
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
                           class="d-none">
                         @csrf
                     </form>

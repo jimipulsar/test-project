@@ -18,7 +18,7 @@ class LoginController extends Controller
 {
     public function getLogin()
     {
-        if (auth()->guard('admin')->user()) {
+        if (auth()->guard('web')->user()) {
             return redirect()->route('dashboard');
         }
         return view('auth.admin.login');
@@ -34,9 +34,8 @@ class LoginController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
-        if (auth()->guard('admin')->attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
-            $admin = auth()->guard('admin')->user();
-            Mail::to($admin->email)->queue(new VerifyEmail($admin));
+        if (auth()->guard('web')->attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
+            $admin = auth()->guard('web')->user();
             event(new AdminLoginHistory($admin));
             return redirect()->route('dashboard')->with('success', 'Autenticazione avvenuta!');
 
@@ -86,13 +85,13 @@ class LoginController extends Controller
 
     public function logout(Request $request)
     {
-        Auth::guard('admin')->logout();
+        Auth::guard('web')->logout();
         return redirect()->route('adminLogin');
     }
 
     public function adminLogout()
     {
-        auth()->guard('admin')->logout();
+        auth()->guard('web')->logout();
         return redirect()->route('adminLogin')->with('success', 'Sei uscito correttamente');
     }
 

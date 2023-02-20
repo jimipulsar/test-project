@@ -16,7 +16,7 @@
             <nav class="breadcrumb-nav">
                 <div class="container">
                     <ul class="breadcrumb">
-                        <li><a href="{{route('adminLogin')}}">Home</a></li>
+                        <li><a href="{{route('login')}}">Home</a></li>
                         <li>Ricambi</li>
                     </ul>
                 </div>

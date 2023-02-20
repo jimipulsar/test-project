@@ -14,10 +14,23 @@
                                 />
                                 <h4 class="text-xl font-semibold mt-1 mb-12 pb-1">Admin Dashboard </h4>
                             </div>
-                            <form action="{{route('login')}}" method="post"
+
+                            <form method="POST" action="{{ route('register') }}"
                                   enctype="multipart/form-data">
-                                @csrf
-                                <p class="mb-4">Enter your credentials to access the reserved area</p>
+                                {{ csrf_field() }}
+                                <p class="mb-4">Create your account</p>
+                                <div class="mb-4">
+                                    <input
+                                            type="text" id="name" name="name"
+                                            class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                            placeholder="Name"
+                                    />
+                                    @error('name')
+                                    <span class="invalid-feedback text-red" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                    @enderror
+                                </div>
                                 <div class="mb-4">
                                     <input
                                             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
@@ -31,6 +44,15 @@
                                             type="password" id="password" name="password"
                                             class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                                             placeholder="Password"
+                                    />
+                                    @error('password')
+                                    <span class="invalid-feedback text-red" role="alert">
+                                                                            <strong>{{ $message }}</strong>
+                                                                        </span>
+                                    @enderror
+                                </div>
+                                <div class="mb-4">
+                                    <input id="password-confirm" type="password"class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"  name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password"
                                     />
                                     @error('password')
                                     <span class="invalid-feedback text-red" role="alert">
@@ -52,17 +74,8 @@
                                             data-mdb-ripple="true"
                                             data-mdb-ripple-color="light"
                                             style=" background: linear-gradient( to right,#ee7724, #d8363a,  #dd3675,#b44593);">
-                                        Accedi
-                                    </button>
-                                </div>
-                                <div class="d-block text-center mb-4">
-                                    <a href="{{route('register')}}"
-                                       class="inline-block px-6 py-2 border-2 border-red-600 text-white font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"
-                                       data-mdb-ripple="true"
-                                       data-mdb-ripple-color="light"
-                                       style=" background:linear-gradient( to right,#881c1c, #822124, #4a171f,#b44593)">
                                         Register
-                                    </a>
+                                    </button>
                                 </div>
                                 <div class="d-block text-center">
                                     <a href="{{route('login')}}"

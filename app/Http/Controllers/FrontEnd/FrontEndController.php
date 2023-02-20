@@ -79,8 +79,8 @@ class FrontEndController extends Controller
             ])
             ->get()->take(3);
 
-        if (auth()->guard('customer')->check()) {
-            $customerFavourites = Wishlist::where('customer_id', auth()->guard('customer')->user()->id)
+        if (auth()->guard('web')->check()) {
+            $customerFavourites = Wishlist::where('customer_id', auth()->guard('web')->user()->id)
                 ->where('product_id', $product->id)
                 ->first();
             return view('pages.product', [

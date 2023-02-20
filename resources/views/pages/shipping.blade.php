@@ -15,7 +15,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-3 flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
                             <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1"><a
-                                    href="{{route('adminLogin')}}">Home</a></li>
+                                    href="{{route('login')}}">Home</a></li>
                             <li class="breadcrumb-item flex-shrink-0 flex-xl-shrink-1 active" aria-current="page">
                                 Spedizione: {{$zip->city.','.$zip->state}}
                             </li>

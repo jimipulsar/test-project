@@ -1067,6 +1067,8 @@ video {
   padding: 1rem;
 }.p-40 {
   padding: 10rem;
+}.p-5 {
+  padding: 1.25rem;
 }.p-6 {
   padding: 1.5rem;
 }.px-2 {

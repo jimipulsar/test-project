@@ -12,17 +12,7 @@
                             <p class="mb-45">Ricevi tutte le <span class="text-brand">novità</span> e aggiornamenti
                                 sugli articoli in vendita
                             </p>
-                            <form action="{{ route('newRegistration') }}" method="POST"
-                                  enctype="multipart/form-data"
-                                  class="form-subcriber d-flex">
-                                @csrf
-                                <input type="hidden" name="_token" id="csrf-token" value="{{ Session::token() }}"/>
-                                <input type="email" id="emailSubscription" aria-describedby="emailSubscription"
-                                       class="form-control mr-2 bg-white" name="emailSubscription"
-                                       placeholder="Inserisci la tua E-mail"/>
-                                <button class="btn" type="submit" id="newsLetter">Iscriviti<i
-                                            class="w-icon-long-arrow-right" id="emailSubscription"></i></button>
-                            </form>
+
                         </div>
                         <img src="/assets/imgs/banner/banner-9.png" alt="newsletter"/>
                     </div>
@@ -131,35 +121,8 @@
                         </ul>
                     </div>
                 </div>
-                <div class="footer-link-widget col wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
-                    <h4 class="widget-title">Azienda</h4>
-                    <ul class="footer-list mb-sm-5 mb-md-0">
-                        <li><a href="{{route('about')}}">Chi siamo</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Termini e Condizioni</a></li>
-                        <li><a href="{{route('contacts')}}">Contattaci</a></li>
-                    </ul>
-                </div>
-                <div class="footer-link-widget col wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
-                    <h4 class="widget-title">Account</h4>
-                    <ul class="footer-list mb-sm-5 mb-md-0">
-                        {{--                        <li><a href="{{route('customerLogin')}}">Accedi</a></li>--}}
-                        <li><a href="{{route('cart')}}">Carrello</a></li>
-                        <li><a href="{{route('wishlist')}}">Lista dei desideri</a></li>
-                        <li><a href="{{route('compare')}}">Confronta prodotti</a></li>
-                    </ul>
-                </div>
-                <div class="footer-link-widget col wow animate__animated animate__fadeInUp notranslate"
-                     data-wow-delay=".4s">
-                    <h4 class="widget-title">Categorie</h4>
-                    <ul class="footer-list mb-sm-5 mb-md-0 notranslate">
-                        @foreach (getCategories() as $cat)
-                            <li>
-                                <a href="{{ route('categoryPage',[$cat->id,  $cat->category_slug]) }}">{{ucFirst($cat->name)}}</a>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
+
+
                 <div class="footer-link-widget widget-install-app col wow animate__animated animate__fadeInUp"
                      data-wow-delay=".5s">
                     <h4 class="widget-title">Pagamenti sicuri</h4>

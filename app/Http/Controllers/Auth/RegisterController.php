@@ -52,7 +52,7 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
-        return view('auth.customer.register');
+        return view('auth.admin.register');
     }
 
     /**
@@ -128,7 +128,7 @@ class RegisterController extends Controller
     protected function validator(array $data): \Illuminate\Contracts\Validation\Validator
     {
         return Validator::make($data, [
-            'billing_name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:customers'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
 //            'g-recaptcha-response' => 'required'
@@ -139,28 +139,9 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-        return Customer::create([
+        return User::create([
             'email' => $data['email'],
-            'billing_name' => $data['billing_name'],
-           'billing_surname' => $data['billing_surname'],
-//           'billing_company' => $data['billing_company'],
-//           'billing_vat' => $data['billing_vat'],
-//           'billing_phone' => $data['billing_phone'],
-//           'billing_address' => $data['billing_address'],
-//           'billing_city' => $data['billing_city'],
-//           'billing_zipcode' => $data['billing_zipcode'],
-//           'billing_province' => $data['billing_province'],
-//
-//           'shipping_name' => $data['billing_name'],
-//           'shipping_surname' => $data['billing_surname'],
-//           'shipping_company' => $data['billing_company'],
-//           'shipping_country' => $data['shipping_country'],
-//           'shipping_vat' => $data['billing_vat'],
-//           'shipping_phone' => $data['billing_phone'],
-//           'shipping_address' => $data['billing_address'],
-//           'shipping_city' => $data['billing_city'],
-//           'shipping_zipcode' => $data['billing_zipcode'],
-//           'shipping_province' => $data['billing_province'],
+            'name' => $data['name'],
             'password' => Hash::make($data['password']),
         ]);
 

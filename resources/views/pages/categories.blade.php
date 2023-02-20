@@ -20,7 +20,7 @@
                     <div class="col-md-6 col-lg-6 col-sm-12">
                         <h2 class="mb-15" id="shopTitle">Categorie</h2>
                         <div class="breadcrumb" id="shopTitle">
-                            <a href="{{route('adminLogin')}}" rel="nofollow"><i
+                            <a href="{{route('login')}}" rel="nofollow"><i
                                         class="fi-rs-home mr-5"></i>Home</a>
                             <span></span>
                             <a href="{{route('mainCategory')}}"

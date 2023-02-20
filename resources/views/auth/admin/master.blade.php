@@ -129,7 +129,7 @@
 @yield('javascript')
 <livewire:scripts/>
 <script>
-    window.livewire_app_url = '{{route('adminLogin')}}';
+    window.livewire_app_url = '{{route('login')}}';
 </script>
 <script src="https://cdn.jsdelivr.net/gh/livewire/sortable@v0.x.x/dist/livewire-sortable.js"></script>
 </body>

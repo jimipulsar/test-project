@@ -82,7 +82,7 @@ class ProductsController extends Controller
 
         $mainCategory = DB::table('categories')->where('id', '=', \request()->input('categories.0'))->first();
         $subCategory = DB::table('categories')->where('id', '=', \request()->input('categories.1'))->first();
-        $product->user_id = auth()->guard('admin')->id();
+        $product->user_id = auth()->guard('web')->id();
         $product->item_name = \request()->input('item_name');
         $product->slug = Str::slug($product->item_name);
         $product->item_code = \request()->input('item_code');
@@ -210,7 +210,7 @@ class ProductsController extends Controller
 //        'file' => 'required|file',
 //        'video' => 'mimes:m4v,avi,flv,mp4,mov',
 
-        $product->user_id = auth()->guard('admin')->id();
+        $product->user_id = auth()->guard('web')->id();
         $mainCategory = DB::table('categories')->where('id', '=', \request()->input('categories.0'))->first();
         $subCategory = DB::table('categories')->where('id', '=', \request()->input('categories.1'))->first();
 

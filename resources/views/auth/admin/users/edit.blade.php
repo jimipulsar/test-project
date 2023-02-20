@@ -1,16 +1,7 @@
 @extends('backend.adminlayouts.master')
 
 @section('body')
-{{--    @if (session()->has('success'))--}}
-{{--        <div class="alert alert-success animated slideInRight" id="hideMe">--}}
-{{--            <p>{!! session()->get('success')!!}   </p>--}}
-{{--        </div>--}}
-{{--    @endif--}}
-{{--    @if (session()->has('danger'))--}}
-{{--        <div class="alert alert-danger animated slideInRight" id="hideMe">--}}
-{{--            <p>{!! session()->get('danger')!!}   </p>--}}
-{{--        </div>--}}
-{{--    @endif--}}
+
     <form action="{{ route('users.update', $user->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')

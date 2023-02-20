@@ -145,7 +145,7 @@
     {{--                                @else--}}
     {{--                                    <h4>{!! __('customer.noOrders') !!}</h4>--}}
     {{--                                @endif--}}
-    {{--                                <a href="{{route('adminLogin')}}"--}}
+    {{--                                <a href="{{route('login')}}"--}}
     {{--                                   class="btn btn-dark btn-rounded btn-icon-right">Vai--}}
     {{--                                    in Home Page<i class="w-icon-long-arrow-right"></i></a>--}}
     {{--                            </div>--}}

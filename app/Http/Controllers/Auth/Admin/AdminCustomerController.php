@@ -22,7 +22,7 @@ class AdminCustomerController extends Controller
 
     public function dashboard()
     {
-        if (auth()->guard('admin')->user()) {
+        if (auth()->guard('web')->user()) {
 
             $customers = Customer::all();
             $products = Product::all();

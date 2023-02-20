@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Mail\SignUpMail;
 use App\Models\User;
 use App\Models\Notification;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -25,7 +26,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        if (Auth::guard('admin')->check()) {
+        if (Auth::guard('web')->check()) {
             $users = User::orderBy('id', 'DESC')->paginate(15);
             $currentNotice = Notification::where('read_at', '=', null)->first();
 
@@ -73,6 +74,7 @@ class UserController extends Controller
         $user = User::create($input);
         Mail::to('jimipulsar@github.com')
             ->send(new SignUpMail($user));
+        event(new Registered($user));
         return redirect()->route('users.index')->with('success', 'Utente creato con successo');
     }
 
@@ -135,7 +137,7 @@ class UserController extends Controller
 
     public function destroy($id)
     {
-        if (auth()->guard('admin')->user()) {
+        if (auth()->guard('web')->user()) {
             User::findOrFail($id)->delete();
 
             return redirect()->route('users.index')

@@ -22,7 +22,7 @@ class ProfileAdminController extends Controller
          * fetching the user model
          **/
 
-        $admin = Auth::guard('admin')->user();
+        $admin = Auth::guard('web')->user();
         //var_dump($customer);
 
         return view('auth.admin.profile', [
@@ -46,7 +46,7 @@ class ProfileAdminController extends Controller
         ]);
 
         $dataProfile = $request->all();
-        $admin = User::where('id', Auth::guard('admin')->user()->id)->first();
+        $admin = User::where('id', Auth::guard('web')->user()->id)->first();
 
         if (!empty($dataProfile['password'])) {
 
@@ -61,7 +61,7 @@ class ProfileAdminController extends Controller
         }
 
 
-        if (Auth::guard('admin')->check()) {
+        if (Auth::guard('web')->check()) {
             $admin->update($dataProfile);
         }
         /**

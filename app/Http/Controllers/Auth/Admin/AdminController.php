@@ -5,11 +5,6 @@ namespace App\Http\Controllers\Auth\Admin;
 use App\Events\AdminLoginHistory;
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
-use App\Models\Notification;
-use App\Models\Order;
-use App\Models\Product;
-use App\Models\User;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -17,6 +12,7 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\ValidationException;
 
 
@@ -38,14 +34,14 @@ class AdminController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('admin')->except('logout');
+        $this->middleware('auth')->except('logout');
 
 
     }
 
     public function getLogin()
     {
-        if (auth()->guard('admin')->user()) {
+        if (auth()->guard('web')->user()) {
             return redirect()->route('dashboard');
         }
         return view('auth.admin.login');
@@ -61,8 +57,10 @@ class AdminController extends Controller
             'email' => 'required|email',
             'password' => 'required',
         ]);
-        if (auth()->guard('admin')->attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
-            $admin = auth()->guard('admin')->user();
+
+
+        if (auth()->guard('web')->attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
+            $admin = auth()->guard('web')->user();
 
             event(new AdminLoginHistory($admin));
             return redirect()->route('dashboard')->with('success', 'Autenticazione avvenuta!');
@@ -113,13 +111,13 @@ class AdminController extends Controller
 
     public function logout(Request $request)
     {
-        Auth::guard('admin')->logout();
+        Auth::guard('web')->logout();
         return redirect()->route('adminLogin');
     }
 
     public function adminLogout()
     {
-        auth()->guard('admin')->logout();
+        auth()->guard('web')->logout();
         return redirect()->route('adminLogin')->with('success', 'Sei uscito correttamente');
     }
 
@@ -145,7 +143,7 @@ class AdminController extends Controller
 
     public function dashboard()
     {
-        if (auth()->guard('admin')->check()) {
+        if (auth()->guard('web')->check()) {
             $notifications = DB::table('notifications')->orderBy('created_at', 'DESC')->get();
             $customers = Customer::all();
             $products = DB::table('products')->count();
@@ -163,7 +161,7 @@ class AdminController extends Controller
 
     public function searchOrder()
     {
-        if (auth()->guard('admin')->check()) {
+        if (auth()->guard('web')->check()) {
             $pagination = 6;
             $notifications = DB::table('notifications')->orderBy('created_at', 'DESC')->get();
             $customers = DB::table('customers')->orderBy('created_at', 'DESC')->get();

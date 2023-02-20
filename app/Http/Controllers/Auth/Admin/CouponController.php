@@ -21,7 +21,7 @@ class CouponController extends Controller
      */
     public function index()
     {
-        if (Auth::guard('admin')->check()) {
+        if (Auth::guard('web')->check()) {
             $coupons = Coupon::orderBy('created_at', 'DESC')->paginate(5);
             if (!$coupons) {
                 abort(404);
@@ -107,7 +107,7 @@ class CouponController extends Controller
      */
     public function destroy($id)
     {
-//        if (auth()->guard('admin')->user()) {
+//        if (auth()->guard('web')->user()) {
 //            Coupon::find($id)->delete();
 //
 //            return redirect()->route('coupon.index')
