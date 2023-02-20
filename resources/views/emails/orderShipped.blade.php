@@ -10,9 +10,9 @@
     <table class="table table-striped pt-3" style="width:100% !important">
         <thead style="padding:10px">
         <tr style="padding:10px">
-            <th style="text-align:left;padding:10px">Nome prodotto</th>
+            <th style="text-align:left;padding:10px">Name prodotto</th>
             <th style="text-align:left;padding:10px">Quantità</th>
-            <th style="text-align:left;padding:10px">Prezzo</th>
+            <th style="text-align:left;padding:10px">Price</th>
         </tr>
         </thead>
         <tbody>

@@ -16,8 +16,8 @@
                         </div>
                         <input wire:model="searchTerm" type="search" id="default-search"
                                class="block p-4 pl-10 w-full text-sm text-gray-900 bg-white-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-white-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-dark dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                               placeholder="Cerca Prodotto, SKU code..." required>
-                        {{--                        <button type="submit" class="btn px-6  py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs leading-tight uppercase rounded shadow-md  hover:shadow-lg focus:bg-blue-900  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out  absolute right-2.5 bottom-2.5">Cerca</button>--}}
+                               placeholder="Search for Product, SKU code..." required>
+                        {{--                        <button type="submit" class="btn px-6  py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs leading-tight uppercase rounded shadow-md  hover:shadow-lg focus:bg-blue-900  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out  absolute right-2.5 bottom-2.5">Search for</button>--}}
                     </div>
                 </form>
             </div>
@@ -73,7 +73,7 @@
                     </th>
                     <th style="width:150px"
                         class="pr-20 px-6 py-3 border-b border-gray-200 bg-gray-50 text-center text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                        Azioni
+                        Actions
                     </th>
                 </tr>
                 </thead>
@@ -96,20 +96,20 @@
                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-center justify-content-center">
                             <a data-toggle="tooltip" data-placement="bottom"
                                class="px-4 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-                               title="Visualizza"
+                               title="View"
                                href="{{ route('users.show', $user->id) }}" id="btLeft"><i
-                                        class="fas fa-eye" title="Visualizza"></i></a>
+                                        class="fas fa-eye" title="View"></i></a>
 
                             <a data-toggle="tooltip" data-placement="bottom"
                                class="px-4 py-2.5 ml-2 bg-yellow-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-yellow-700 hover:shadow-lg focus:bg-yellow-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-yellow-800 active:shadow-lg transition duration-150 ease-in-out"
-                               title="Modifica"
+                               title="Edit"
                                href="{{ route('users.edit',$user->id) }}"
                                id="btLeft"><i
-                                        class="fas fa-edit" title="Modifica"></i></a>
+                                        class="fas fa-edit" title="Edit"></i></a>
                             <div
                                     x-data="{ 'showModal': false }"
                                     @keydown.escape="showModal = false" id="btLeft">
-                                <button type="button" @click="showModal = true" title="Elimina"
+                                <button type="button" @click="showModal = true" title="Delete"
                                         class="px-4 py-2.5 ml-2 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lgfocus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0active:bg-red-800 active:shadow-lgtransition duration-150 ease-in-out mr-4">
                                     <i class="fas fa-trash-alt"></i></button>
                                 <!-- Trigger for Modal -->

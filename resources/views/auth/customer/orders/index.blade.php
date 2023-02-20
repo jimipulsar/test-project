@@ -38,7 +38,7 @@
                                                     <th>Data</th>
                                                     <th>Stato</th>
                                                     <th>Totale</th>
-                                                    <th>Azioni</th>
+                                                    <th>Actions</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -107,7 +107,7 @@
     {{--                                            <th class="order-date">Data</th>--}}
     {{--                                            <th class="order-status">Stato</th>--}}
     {{--                                            <th class="order-total">Totale</th>--}}
-    {{--                                            <th class="order-actions">Azioni</th>--}}
+    {{--                                            <th class="order-actions">Actions</th>--}}
     {{--                                        </tr>--}}
     {{--                                        </thead>--}}
     {{--                                        <tbody>--}}

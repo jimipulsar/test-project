@@ -13,7 +13,7 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link {{ (request()->routeIs('profile')) ? 'active' : '' }}" href="{{route('profile')}}" aria-selected="false"><i class="fi-rs-user mr-10"></i>Il mio profilo</a>
+        <a class="nav-link {{ (request()->routeIs('profile')) ? 'active' : '' }}" href="{{route('profile')}}" aria-selected="false"><i class="fi-rs-user mr-10"></i>My Profile</a>
     </li>
     <li class="nav-item">
         <a class="nav-link"

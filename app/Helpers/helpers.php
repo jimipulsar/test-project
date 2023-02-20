@@ -29,7 +29,7 @@ if (!function_exists('getBrands')) {
     {
         $paginate = 8;
         return Brand::orderBy('updated_at', 'DESC')->paginate($paginate);
-//        return Product::distinct()->get('item_name', 'Categoria', 'item_code', 'Descrizione', 'img_01', 'img_02', 'stock_qty', 'quantity ', 'Prezzo');
+//        return Product::distinct()->get('item_name', 'Categoria', 'item_code', 'Descrizione', 'img_01', 'img_02', 'stock_qty', 'quantity ', 'Price');
 
     }
 }
@@ -109,7 +109,7 @@ if (!function_exists('getCategories')) {
     function getCategories()
     {
         return DB::table('categories')->where('parent_id', '=', null)->get();
-//        return DB::table('products')->orderBy('Prezzo', 'DESC')->get();
+//        return DB::table('products')->orderBy('Price', 'DESC')->get();
     }
 }
 if (!function_exists('getSubCategories')) {
@@ -118,7 +118,7 @@ if (!function_exists('getSubCategories')) {
     {
         return DB::table('categories')->where('parent_id', '!=', null)->pluck('name');
 //        return Product::distinct()->get('SottoCategoria');
-//        return DB::table('products')->orderBy('Prezzo', 'DESC')->get();
+//        return DB::table('products')->orderBy('Price', 'DESC')->get();
     }
 }
 

@@ -46,7 +46,7 @@
                             <div class="grid grid-cols-6 gap-6 mt-5">
                                 <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                                     <label for="password"
-                                           class="block text-sm font-medium text-gray-700">Nuova Password</label>
+                                           class="block text-sm font-medium text-gray-700">New Password</label>
                                     <input type="password" name="password" id="password"
                                            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
                                     @if ($errors->has('password'))
@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                                     <label for="nome"
-                                           class="block text-sm font-medium text-gray-700">Conferma password</label>
+                                           class="block text-sm font-medium text-gray-700">Confirm Password</label>
                                     <input type="password" name="password_confirmation" id="password-confirm"
                                            class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                                     >

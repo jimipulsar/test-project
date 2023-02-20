@@ -23,7 +23,7 @@
                         </span>
                 <input type="text"
                        class="py-1 form-input w-32 sm:w-64 rounded-md pl-10 pr-4 "
-                       name="o" placeholder="Cerca ordine"
+                       name="o" placeholder="Search for ordine"
                        aria-label="o" aria-describedby="search" required>
 
 

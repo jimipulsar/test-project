@@ -3,7 +3,7 @@
 @section('body')
 
 
-    <h3 class="text-gray-700 text-3xl font-medium">Attività utenti</h3>
+    <h3 class="text-gray-700 text-3xl font-medium">Users Activity</h3>
 
     <div class="intro-y grid grid-cols-12 gap-6 ">
         <div class="col-span-12 lg:col-span-12">
@@ -15,7 +15,7 @@
                             <thead>
                             <tr>
                                 <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                                    Nome
+                                    Name
                                 </th>
                                 <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                                     Email

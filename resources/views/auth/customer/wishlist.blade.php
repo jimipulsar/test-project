@@ -42,10 +42,10 @@
                                                                id="exampleCheckbox11" value=""/>
                                                         <label class="form-check-label" for="exampleCheckbox11"></label>
                                                     </th>
-                                                    <th scope="col" colspan="2">Prodotto</th>
-                                                    <th scope="col" style="width:200px !important">Prezzo</th>
+                                                    <th scope="col" colspan="2">Product</th>
+                                                    <th scope="col" style="width:200px !important">Price</th>
                                                     <th scope="col"  style="width:200px !important">Disponibilità</th>
-                                                    <th scope="col"  style="width:200px !important">Azioni</th>
+                                                    <th scope="col"  style="width:200px !important">Actions</th>
                                                     <th scope="col" class="end">Rimuovi</th>
                                                 </tr>
                                                 </thead>
@@ -78,7 +78,7 @@
                                                                 <span class="font-small ml-5 text-muted"> (4.0)</span>
                                                             </div>
                                                         </td>
-                                                        <td class="price" data-title="Prezzo">
+                                                        <td class="price" data-title="Price">
                                                             <h4 class="text-brand">
                                                                 € {{ price($details->product->price) }}</h4>
                                                         </td>

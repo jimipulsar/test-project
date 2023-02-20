@@ -36,7 +36,7 @@
                                 @endforeach
                             </tr>
                             <tr class="pr_title">
-                                <td class=" font-sm fw-600 font-heading">Nome Articolo</td>
+                                <td class=" font-sm fw-600 font-heading">Name Articolo</td>
                                 @foreach(session('compare') as $id => $details)
 
                                     <td class="product_name">
@@ -47,7 +47,7 @@
                                 @endforeach
                             </tr>
                             <tr class="pr_price">
-                                <td class=" font-sm fw-600 font-heading">Prezzo</td>
+                                <td class=" font-sm fw-600 font-heading">Price</td>
                                 @foreach(session('compare') as $id => $details)
                                     <td class="product_price">
                                         <h4 class="price text-brand">€ {{priceView($details['price'])}}</h4>

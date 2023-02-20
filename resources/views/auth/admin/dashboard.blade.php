@@ -31,8 +31,8 @@
                     </div>
 
                     <div class="mx-5">
-                        <h4 class="text-2xl font-semibold text-gray-700">{{$customers->count()}}</h4>
-                        <div class="text-gray-500">Utenti registrati</div>
+                        <h4 class="text-2xl font-semibold text-gray-700">{{$users->count()}}</h4>
+                        <div class="text-gray-500">Registered Users</div>
                     </div>
                 </div>
             </div>
@@ -52,7 +52,7 @@
 
                     <div class="mx-5">
                         <h4 class="text-2xl font-semibold text-gray-700">{{$products}}</h4>
-                        <div class="text-gray-500">Prodotti in magazzino</div>
+                        <div class="text-gray-500">Products in stock</div>
                     </div>
                 </div>
             </div>

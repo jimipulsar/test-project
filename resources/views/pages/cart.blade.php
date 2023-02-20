@@ -33,8 +33,8 @@
                     <table class="table table-wishlist">
                         <thead>
                         <tr class="main-heading">
-                            <th scope="col" colspan="2">Prodotto</th>
-                            <th scope="col">Prezzo unitario</th>
+                            <th scope="col" colspan="2">Product</th>
+                            <th scope="col">Price unitario</th>
                             <th scope="col">Quantità</th>
                             <th scope="col">Subtotale</th>
                             <th scope="col" class="end">Rimuovi</th>
@@ -60,7 +60,7 @@
                                                             href="{{ route('shop.show',[$id,$details['slug']]) }}">{{$details['name'] }}</a>
                                         </h6>
                                     </td>
-                                    <td class="price" data-title="Prezzo">
+                                    <td class="price" data-title="Price">
                                         <h4 class="text-body">€ {{ priceView($details['price']) }} </h4>
                                     </td>
                                     <td class="text-center detail-info" data-title="Magazzino">
@@ -83,7 +83,7 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="price" data-title="Prezzo">
+                                    <td class="price" data-title="Price">
                                         <h4 class="text-brand">  <span
                                                 class="amount"> € {{ priceView($details['quantity'] * $details['price'])}}</span>
                                         </h4>
@@ -258,7 +258,7 @@
     {{--                                <tr>--}}
     {{--                                    <th class="product-name text-left"><span>Immagine</span></th>--}}
     {{--                                    <th class="product-name text-left" style="width:200px"><span>Articolo</span></th>--}}
-    {{--                                    <th class="product-price text-left"><span>Prezzo</span></th>--}}
+    {{--                                    <th class="product-price text-left"><span>Price</span></th>--}}
     {{--                                    <th class="product-quantity text-left"><span>Quantità</span></th>--}}
     {{--                                    <th class="product-subtotal text-left"><span>Subtotale</span></th>--}}
     {{--                                </tr>--}}

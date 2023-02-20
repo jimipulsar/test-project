@@ -7,7 +7,7 @@
         <div class="container">
             <div class="breadcrumb">
                 <a href="{{route('home')}}" rel="nofollow"><i class="fi-rs-home mr-5"></i>Home</a>
-                 <span></span> Il mio profilo
+                 <span></span> My Profile
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@
 
                             <div class="card">
                                 <div class="card-header">
-                                    <h5>Il mio profilo</h5>
+                                    <h5>My Profile</h5>
                                 </div>
                                 <div class="card-body">
                                     <form action="{{ route('update', [$customer->id]) }}"
@@ -50,7 +50,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="text-dark" for="new-password">Nuova Password</label>
+                                            <label class="text-dark" for="new-password">New Password</label>
                                             <input type="password" id="password"
                                                    name="password"
                                                    class="notranslate form-control form-control-md"
@@ -62,7 +62,7 @@
                                             @endif
                                         </div>
                                         <div class="form-group mb-10">
-                                            <label class="text-dark" for="conf-password">Conferma Password</label>
+                                            <label class="text-dark" for="conf-password">Confirm Password</label>
                                             <input type="password" name="password_confirmation"
                                                    id="password-confirm"
                                                    class="notranslate form-control form-control-md">

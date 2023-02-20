@@ -217,7 +217,7 @@
                                                                               method="post">
                                                                             @csrf
                                                                             <div class="form-group">
-                                                                                <label for="name">Nome</label>
+                                                                                <label for="name">Name</label>
                                                                                 <input type="text" id="name" name="name"
                                                                                        class="form-control" required>
                                                                             </div>

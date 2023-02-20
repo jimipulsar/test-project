@@ -2385,7 +2385,7 @@
                                                  role="document">
                                                 <div class="modal-content " style="padding:50px">
                                                     <div class="form-group col-lg-12">
-                                                        <label for="name_on_card">Nome sulla
+                                                        <label for="name_on_card">Name sulla
                                                             carta</label>
                                                         <input type="text" class="form-control"
                                                                id="name_on_card"
@@ -2451,7 +2451,7 @@
                                              role="document">
                                             <div class="modal-content " style="padding:50px">
                                                 <div class="form-group col-lg-12">
-                                                    <label for="name_on_card">Nome sulla
+                                                    <label for="name_on_card">Name sulla
                                                         carta</label>
                                                     <input type="text" class="form-control"
                                                            id="name_on_card"

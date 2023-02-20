@@ -2,7 +2,7 @@
 
 @section('body')
 
-    <h3 class="text-gray-700 text-3xl font-medium">Il mio profilo</h3>
+    <h3 class="text-gray-700 text-3xl font-medium">My Profile</h3>
     <div class="md:grid md:grid-cols-3 md:gap-6 mt-10 mb-10">
         <div class="mt-5 md:mt-0 md:col-span-2">
             <form action="{{ route('updateAdmin',[ $admin->id]) }}"
@@ -14,7 +14,7 @@
                         <div class="grid grid-cols-6 gap-6 mt-5">
                             <div class="col-span-12 sm:col-span-12">
                                 <label for="nome"
-                                       class="block text-sm font-medium text-gray-700">Nome</label>
+                                       class="block text-sm font-medium text-gray-700">Name</label>
                                 <input type="text" name="name" id="name"
                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                                        value="{{$admin->name}}">
@@ -44,7 +44,7 @@
                         <div class="grid grid-cols-6 gap-6 mt-5">
                             <div class="col-span-6 sm:col-span-3">
                                 <label for="password"
-                                       class="block text-sm font-medium text-gray-700">Nuova Password</label>
+                                       class="block text-sm font-medium text-gray-700">New Password</label>
                                 <input type="password" name="password" id="password"
                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" >
                                 @if ($errors->has('password'))
@@ -55,7 +55,7 @@
                             </div>
                             <div class="col-span-6 sm:col-span-3">
                                 <label for="nome"
-                                       class="block text-sm font-medium text-gray-700">Conferma password</label>
+                                       class="block text-sm font-medium text-gray-700">Confirm Password</label>
                                 <input type="password" name="password_confirmation" id="password-confirm"
                                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                                        value="{{$admin->nome}}">

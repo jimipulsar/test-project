@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth\Admin;
 use App\Events\AdminLoginHistory;
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
+use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -145,11 +146,11 @@ class AdminController extends Controller
     {
         if (auth()->guard('web')->check()) {
             $notifications = DB::table('notifications')->orderBy('created_at', 'DESC')->get();
-            $customers = Customer::all();
+            $users = DB::table('users')->orderBy('created_at', 'DESC')->get();
             $products = DB::table('products')->count();
 
             return view('auth.admin.dashboard', [
-                'customers' => $customers,
+                'users' => $users,
                 'products' => $products,
                 'notifications' => $notifications,
             ]);

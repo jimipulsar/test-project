@@ -70,7 +70,7 @@
                             price
                         </th>
                         <th class="px-6 py-3 border-b border-gray-200 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
-                            Azioni
+                            Actions
                         </th>
                     </tr>
                     </thead>
@@ -122,14 +122,14 @@
                                 <form action="{{ route('items.destroy' ,$item->id) }}" id="myform" method="post">
 
                                     <a class="btn btn-info" href="{{ route('items.show',$item->slug) }}"
-                                       data-toggle="tooltip" data-placement="bottom" title="Visualizza" target="_blank"><i
+                                       data-toggle="tooltip" data-placement="bottom" title="View" target="_blank"><i
                                             class="fas fa-eye"></i></a>
                                     <a class="btn btn-primary" data-toggle="tooltip" data-placement="bottom"
-                                       title="Modifica" href="{{ route('items.edit',$item->id) }}"><i
+                                       title="Edit" href="{{ route('items.edit',$item->id) }}"><i
                                             class="fas fa-edit"></i></a>
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" data-toggle="tooltip" data-placement="bottom" title="Elimina"
+                                    <button type="submit" data-toggle="tooltip" data-placement="bottom" title="Delete"
                                             class="btn btn-danger"
                                             data-confirm="Sei sicuro di voler eliminare questo articolo?"><i
                                             class="fas fa-trash-alt"></i></button>

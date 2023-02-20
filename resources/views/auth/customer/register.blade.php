@@ -85,7 +85,7 @@
                                             @enderror
                                         </div>
                                         <div class="form-group ">
-                                            <label for="password">Conferma Password *</label>
+                                            <label for="password">Confirm Password *</label>
                                             <input id="password-confirm" type="password"
                                                    name="password_confirmation"
                                                    class="form-control">
