@@ -25,7 +25,7 @@ class CheckArchived
 
             $request->session()->regenerateToken();
 
-            return redirect()->route('adminLogin')->with('error', 'Your Account is archived. Please contact administrator');
+            return redirect()->route('login')->with('error', 'Your Account is archived. Please contact administrator');
 
         }
 
