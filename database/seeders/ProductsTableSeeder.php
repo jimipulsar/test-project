@@ -27,7 +27,7 @@ class ProductsTableSeeder extends Seeder
         $this->users = User::all();
         $this->archived_user = ArchivedUser::all();
 
-        for ($i = 1; $i <= 20; $i++) {
+        for ($i = 1; $i <= 5; $i++) {
             $title = $faker->sentence(1);
             $slug = Str::slug($title);
 
@@ -36,7 +36,7 @@ class ProductsTableSeeder extends Seeder
                 'item_name' => $title,
                 'slug' => $slug,
                 'user_id' => $this->users[rand(0, count($this->users) - 1)]->id,
-                'id_user_id' => $this->archived_user[rand(0, count($this->archived_user) - 1)]->id,
+                'archived_user_id' => $this->archived_user[rand(0, count($this->archived_user) - 1)]->id,
                 'price' => mt_rand(99, 4999) / 100,
                 'item_code' => $faker->numberBetween($min = 1, $max = 4523523),
                 'img_01' => $faker->image('public/storage/images', 640, 480, null, false),

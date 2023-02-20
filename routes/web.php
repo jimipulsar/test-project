@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\FrontEnd\SendMailController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Livewire\Controllers\HttpConnectionHandler;
@@ -26,7 +27,10 @@ use Livewire\Controllers\HttpConnectionHandler;
 */
 
 Route::view('/', 'pages.index')->name('index');
-Route::redirect('/', '/admin-login');
+Route::get('/login', function() {
+    Artisan::call('schedule:run');
+});
+Route::redirect('/', '/login');
 Auth::routes(['verify' => true]);
 Route::get('/email/verify', [VerificationController::class, 'show'])->name('verification.notice');
 Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'])->name('verification.verify')->middleware(['signed']);

@@ -5,13 +5,18 @@ namespace App\Http\Controllers\Auth;
 use App\Events\AdminLoginHistory;
 use App\Events\CustomerLoginHistory;
 use App\Http\Controllers\Controller;
+use App\Models\AdminLogin;
+use App\Models\ArchivedUser;
 use App\Models\Customer;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\ValidationException;
@@ -67,12 +72,14 @@ class LoginController extends Controller
         return view('auth.admin.login');
 
     }
+
     public function redirectArchived()
     {
-$userLogin = DB::table('admin_login_history')->orderBy('created_at', 'desc')->first();
+        $userLogin = DB::table('admin_login_history')->orderBy('created_at', 'desc')->first();
         return view('auth.admin.login');
 
     }
+
     /**
      * @throws ValidationException
      */
@@ -83,6 +90,7 @@ $userLogin = DB::table('admin_login_history')->orderBy('created_at', 'desc')->fi
             'email' => 'required|email',
             'password' => 'required',
         ]);
+
         if (auth()->guard('web')->attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
             $admin = auth()->guard('web')->user();
             event(new AdminLoginHistory($admin));

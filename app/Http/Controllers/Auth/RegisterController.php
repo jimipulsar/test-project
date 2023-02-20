@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Mail\SignUpMail;
+use App\Models\AdminLogin;
 use App\Models\ArchivedUser;
 use App\Models\Customer;
 use App\Models\User;
@@ -81,31 +82,21 @@ class RegisterController extends Controller
         $userAdmin = User::find(1);
 
         $details = [
-            'greeting' => 'Hai ricevuto una nuova registrazione da Livewire Ecommerce Platform',
-            'body' => 'Clicca sul pulsante qui di seguito per visualizzare gli utenti registrati',
-            'thanks' => 'Grazie!',
-            'subject' => 'Nuova registrazione al sito web',
-            'actionText' => 'AREA RISERVATA',
+            'greeting' => 'You have received a new registration from Test Project',
+            'body' => 'Click the button below to view registered users',
+            'thanks' => 'Thanks!',
+            'subject' => 'New registration on the website',
+            'actionText' => 'Reserved Area',
             'actionURL' => url(env('APP_URL') . env('APP_ADMIN_URL')),
             'email' => $user->email,
             'billing_name' => $user->billing_name
         ];
         Notification::send($userAdmin, new NewRegistrationNotification($details));
-        $current_timestamp = Carbon::now()->toDateTimeString();
-        $minutesAgo = Carbon::now()->subMinutes(2)->diffForHumans();
-        $input['password'] = Hash::make($input['password']);
-        $user;
-            dd($user);
-        if ($input['created_at'] > $minutesAgo) {
-//                AdminLogin::create();
-            ArchivedUser::create([
-                'name' => $input['name'],
-                'email' => $input['email'],
-                'password' => $input['password'],
-            ]);
-//                dd($userLogin);
-        }
-        return redirect()->route('home')->with('success', 'Ti sei registrato con successo!');
+//        $current_timestamp = Carbon::now()->toDateTimeString();
+//        $minutesAdded = Carbon::now()->addMinutes(5);
+        ;
+
+        return redirect()->route('home')->with('success', 'Registration done!');
 //
 //        return $request->wantsJson()
 //            ? new JsonResponse([], 201)

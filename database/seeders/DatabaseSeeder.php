@@ -3,10 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\ArchivedUser;
-use App\Models\Customer;
-use App\Models\Product;
 use App\Models\User;
-use Database\Factories\ArchivedUsersFactory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,7 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory()->count(20)->create();
+        User::factory()->count(2)->create();
         ArchivedUser::factory()->count(1)->create();
 
         $this->call(UsersTableSeeder::class);

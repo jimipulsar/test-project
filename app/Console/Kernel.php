@@ -13,11 +13,20 @@ class Kernel extends ConsoleKernel
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
      */
-    protected function schedule(Schedule $schedule){
-        // do this command every hour
-        $schedule->command('my-command:clear-unverified-users')->daily();
+    protected $commands = [
+        Commands\DailyArchived::class,
+    ];
+    /**
+     * Define the application's command schedule.
+     *
+     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+     * @return void
+     */
+    protected function schedule(Schedule $schedule)
+    {
+        $schedule->command('quote:daily')
+            ->everyMinute();
     }
-
     /**
      * Register the commands for the application.
      *
@@ -26,7 +35,6 @@ class Kernel extends ConsoleKernel
     protected function commands()
     {
         $this->load(__DIR__.'/Commands');
-
         require base_path('routes/console.php');
     }
 }
