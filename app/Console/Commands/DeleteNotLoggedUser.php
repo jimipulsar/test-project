@@ -30,23 +30,40 @@ class DeleteNotLoggedUser extends Command
         $this->info('Deleting user not logged in the last 24 hours...');
         $current_timestamp = Carbon::now()->toDateTimeString();
 
-        $count = User::query()
+        $lastActivity = User::query()
             ->whereNotNull('last_login_at')
             ->where('last_login_at', '<', now()->subHours(24))
             ->first();
 
-        if($count) {
+        if ($lastActivity) {
             ArchivedUser::create([
-                'name' => $count->name,
-                'email' => $count->email,
-                'password' => Hash::make($count->password),
+                'name' => $lastActivity->name,
+                'email' => $lastActivity->email,
+                'password' => Hash::make($lastActivity->password),
                 'created_at' => $current_timestamp,
                 'updated_at' => $current_timestamp
             ]);
-            $count->delete();
+            $lastActivity->delete();
+        }
+
+        $neverLoggedIn = User::query()
+            ->whereNull('last_login_at')
+            ->orderBy('created_at', 'desc')
+            ->first();
+
+        if ($neverLoggedIn) {
+            ArchivedUser::create([
+                'name' => $neverLoggedIn->name,
+                'email' => $neverLoggedIn->email,
+                'password' => Hash::make($neverLoggedIn->password),
+                'created_at' => $current_timestamp,
+                'updated_at' => $current_timestamp
+            ]);
+            $neverLoggedIn->delete();
+
         }
         Log::info('Cron Job is running');
-        $this->comment("Deleted {$count} not logged in the last 24 hours.");
+        $this->comment("Deleted {$lastActivity} not logged in the last 24 hours.");
 
         $this->info('All done!');
     }
