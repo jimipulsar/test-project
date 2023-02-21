@@ -45,6 +45,6 @@ Two jobs :
 
     Check .env.example to set up application
 
-## EXCEUTE CRON JOB
+## EXECUTE CRON JOB
         * * * * * cd /var/www/html/test-project && php artisan schedule:run >> /dev/null 2>&1
 
