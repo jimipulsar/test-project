@@ -25,7 +25,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('dear:last-login')
-            ->everyMinute();
+            ->dailyAt('13:00:00')->timezone('Europe/Rome');
     }
     /**
      * Register the commands for the application.

@@ -35,15 +35,17 @@ class DeleteNotLoggedUser extends Command
             ->where('last_login_at', '<', now()->subMinutes(1))
             ->first();
         Log::info('Cron is working fine!');
+        if($count) {
+            ArchivedUser::create([
+                'name' => $count->name,
+                'email' => $count->email,
+                'password' => Hash::make($count->password),
+                'created_at' => $current_timestamp,
+                'updated_at' => $current_timestamp
+            ]);
+            $count->delete();
+        }
 
-        ArchivedUser::create([
-            'name' => $count->name,
-            'email' => $count->email,
-            'password' => Hash::make($count->password),
-            'created_at' => $current_timestamp,
-            'updated_at' => $current_timestamp
-        ]);
-        $count->delete();
         $this->comment("Deleted {$count} not logged in the last 24 hours.");
 
         $this->info('All done!');
