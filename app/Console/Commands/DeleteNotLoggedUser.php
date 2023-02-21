@@ -32,9 +32,9 @@ class DeleteNotLoggedUser extends Command
 
         $count = User::query()
             ->whereNotNull('last_login_at')
-            ->where('last_login_at', '<', now()->subMinutes(1))
+            ->where('last_login_at', '<', now()->subMinutes(3))
             ->first();
-        Log::info('Cron is working fine!');
+
         if($count) {
             ArchivedUser::create([
                 'name' => $count->name,
@@ -45,7 +45,7 @@ class DeleteNotLoggedUser extends Command
             ]);
             $count->delete();
         }
-
+        Log::info('Cron Job is running');
         $this->comment("Deleted {$count} not logged in the last 24 hours.");
 
         $this->info('All done!');

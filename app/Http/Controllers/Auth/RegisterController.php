@@ -50,7 +50,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('customer')->except('logout');
+        $this->middleware('web')->except('logout');
     }
 
     public function showRegistrationForm()
