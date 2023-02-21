@@ -2,7 +2,6 @@
 
 ## FEATURES
 
-
 The user management should have the following features
 
     Create, Edit & View users
@@ -45,6 +44,6 @@ Two jobs :
 
     Check .env.example to set up application
 
-## EXECUTE CRON JOB
+## EXECUTE CRON JOB EVERY DAY AT 1:00 P.M.
        0 1 * * * cd /var/www/html/test-project && php artisan schedule:run >> /dev/null 2>&1
 

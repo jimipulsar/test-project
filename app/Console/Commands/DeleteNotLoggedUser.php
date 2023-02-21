@@ -32,7 +32,7 @@ class DeleteNotLoggedUser extends Command
 
         $count = User::query()
             ->whereNotNull('last_login_at')
-            ->where('last_login_at', '<', now()->subMinutes(3))
+            ->where('last_login_at', '<', now()->subHours(24))
             ->first();
 
         if($count) {
