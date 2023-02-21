@@ -32,28 +32,13 @@ class SendMailController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255',
             'message' => 'required|max:900',
-            'g-recaptcha-response' => 'required'
+//            'g-recaptcha-response' => 'required'
         ]);
-        Mail::to('magazzino@livewire-ecommerce.com')
-            ->cc('acquisti@livewire-ecommerce.com')
+        Mail::to('jimipulsar@github.com')
             ->send(new SendMail($this->request));
-        return back()->with('success', 'Grazie per averci contattato. Riceverai a breve una risposta.');
+        return back()->with('success', 'Thanks for contacting us. You will receive an answer shortly.');
     }
 
-    public function sendProduct()
-    {
-
-        $this->request->validate([
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255',
-            'message' => 'required|max:900',
-            'g-recaptcha-response' => 'required'
-        ]);
-        Mail::to('magazzino@livewire-ecommerce.com')
-            ->cc('acquisti@livewire-ecommerce.com')
-            ->send(new SendMailProduct($this->request));
-        return back()->with('success', 'Grazie per averci contattato. Riceverai a breve una risposta.');
-    }
 
     public function sendSuccess()
     {
