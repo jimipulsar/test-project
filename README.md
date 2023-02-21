@@ -45,4 +45,4 @@ Two jobs :
     Check .env.example to set up application
 
 ## EXECUTE CRON JOB EVERY DAY AT 1:00 P.M.
-       0 15 * * * cd /var/www/html/test-project && php artisan schedule:run >> /dev/null 2>&1 
+       0 13 * * * cd /var/www/html/test-project && php artisan schedule:run >> /dev/null 2>&1 
