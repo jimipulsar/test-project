@@ -22,14 +22,14 @@ Two jobs :
 
 
 
-### START (LARAVEL WEB SITE) LOCAL DEV [LIVEWIRE E-COMMERCE PLATFORM]
+### START (LARAVEL WEB SITE) LOCAL DEV [TEST PROJECT]
 
     composer install && composer dump-autoload
     npm install && npn run dev
     php artisan storage:link
     php artisan key:generate && php artisan serve
 
-### POPULATE DATABASE WITH FAKE DATA [LIVEWIRE E-COMMERCE PLATFORM]
+### POPULATE DATABASE WITH FAKE DATA [TEST PROJECT]
 
     php artisan migrate:fresh --seed
 
