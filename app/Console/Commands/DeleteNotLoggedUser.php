@@ -52,18 +52,24 @@ class DeleteNotLoggedUser extends Command
             ->whereNull('last_login_at')
             ->orderBy('created_at', 'desc')
             ->first();
-
+        $usersNeverLogged = User::query()
+            ->whereNull('last_login_at')
+            ->orderBy('created_at', 'desc')
+            ->get();
         if ($neverLoggedIn) {
-            ArchivedUser::create([
-                'name' => $neverLoggedIn->name,
-                'email' => $neverLoggedIn->email,
-                'password' => Hash::make($neverLoggedIn->password),
-                'created_at' => $current_timestamp,
-                'updated_at' => $current_timestamp
-            ]);
-            $neverLoggedIn->delete();
+            foreach ($usersNeverLogged as $userNot) {
+                ArchivedUser::create([
+                    'name' => $userNot->name,
+                    'email' => $userNot->email,
+                    'password' => Hash::make($userNot->password),
+                    'created_at' => $current_timestamp,
+                    'updated_at' => $current_timestamp
+                ]);
+                $userNot->delete();
 
+            }
         }
+
         Log::info('Cron Job is running');
         $this->comment("Deleted {$lastActivity} not logged in the last 24 hours.");
 
