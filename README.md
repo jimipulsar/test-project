@@ -1,6 +1,6 @@
 ## Trustfactory Test Project
 
-## FEATURES
+## LARAVEL 9 APPLICATION
 
 The user management should have the following features
 
@@ -16,15 +16,15 @@ The user management should have the following features
 
 Two jobs :
 
-    sending email invitations
+    Sending email invitations
 
-    archiving a user that did not log-in in the last 24 hours. This job should run every day at 1 pm
+    Archiving a user that did not log-in in the last 24 hours. This job should run every day at 1 pm
 
 
 
 ### START (LARAVEL WEB SITE) LOCAL DEV [TEST PROJECT]
 
-    composer install && composer dump-autoload
+    composer update
     npm install && npn run dev
     php artisan storage:link
     php artisan key:generate && php artisan serve
